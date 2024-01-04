@@ -1,0 +1,1 @@
+Is an open-source .NET assembly debugger and editor. It is typically used for reverse engineering .NET applications and analysing their code and is primarily designed for examining and modifying .NET assemblies in a user-friendly interactive way. It is also capable of modifying the retrieved source code, setting breakpoints, or running through the code on step at a time.

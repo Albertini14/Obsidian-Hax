@@ -1,0 +1,1 @@
+allows forensics specialists to acquire computer data and perform analysis without affecting the original evidence, preserving its authenticity, integrity, and validity for presentation during trial in a court of law

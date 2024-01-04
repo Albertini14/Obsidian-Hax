@@ -1,0 +1,1 @@
+Is a [[HoneyPot]] of low interaction
