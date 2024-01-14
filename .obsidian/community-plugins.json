@@ -1,6 +1,5 @@
 [
   "obsidian-excalidraw-plugin",
   "obsidian-code-block-enhancer",
-  "cm-editor-syntax-highlight-obsidian",
-  "obsidian-mkdocs-publisher"
+  "cm-editor-syntax-highlight-obsidian"
 ]

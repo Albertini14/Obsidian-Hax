@@ -134,7 +134,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -149,12 +150,18 @@
   },
   "active": "fd19100113e93380",
   "lastOpenFiles": [
-    "Tools/SSH.md",
+    "Theory/Methodology.md",
+    "Information Gathering/Subdomain Enumeration.md",
     "Information Gathering/Privilege Escalation.md",
+    "Network Security/Reconnaissance.md",
+    "Network Security/Protocols And Servers.md",
+    "Network Security/Protocol Defense.md",
+    "Theory/Tools/Tools.md",
+    "Null Byte.md",
+    "Tools/SSH.md",
     "Tools/Privilege Escalation/Evil-WinRM.md",
     "Tools/Privilege Escalation/Rubeus.md",
     "Tools/Privilege Escalation/Whisker.md",
-    "Theory/Methodology.md",
     "Information Gathering/Authentication Bypass.md",
     "Tools/Forensics/Volatility.md",
     "Tools/Forensics/FTK Imager.md",
@@ -165,7 +172,6 @@
     "SQLi.md",
     "Tools/Privilege Escalation",
     "Information Gathering/Exploitation.md",
-    "Information Gathering/Subdomain Enumeration.md",
     "Tools/Forensics/Untitled",
     "Tools/Hydra.md",
     "Tools/Forensics",
@@ -175,11 +181,6 @@
     "Tools/Wordlist gen",
     "Tools/Wordlist gen/Crunch.md",
     "Tools/Ettercap.md",
-    "Network Security/Protocol Attack.md",
-    "Tools/Metasploit.md",
-    "Information Gathering/Content Discovery.md",
-    "Theory/Attackers.md",
-    "Linux/Commands.md",
     "Untitled",
     "Untitled.canvas",
     "Network Security",
