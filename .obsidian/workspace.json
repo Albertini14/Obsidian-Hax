@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Information Gathering/Privilege Escalation.md",
+                "file": "Information Gathering/Shells.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Information Gathering/Privilege Escalation.md",
+                "file": "Information Gathering/Shells.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Information Gathering/Privilege Escalation.md",
+                "file": "Information Gathering/Shells.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Information Gathering/Privilege Escalation.md"
+                "file": "Information Gathering/Shells.md"
               }
             }
           }
@@ -150,9 +150,10 @@
   },
   "active": "fd19100113e93380",
   "lastOpenFiles": [
+    "Tools/Metasploit.md",
+    "Information Gathering/Shells.md",
     "Theory/Methodology.md",
     "Information Gathering/Subdomain Enumeration.md",
-    "Information Gathering/Privilege Escalation.md",
     "Network Security/Reconnaissance.md",
     "Network Security/Protocols And Servers.md",
     "Network Security/Protocol Defense.md",
@@ -180,7 +181,6 @@
     "Tools/Wordlist gen/CeWL.md",
     "Tools/Wordlist gen",
     "Tools/Wordlist gen/Crunch.md",
-    "Tools/Ettercap.md",
     "Untitled",
     "Untitled.canvas",
     "Network Security",

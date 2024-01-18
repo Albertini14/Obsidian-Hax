@@ -75,13 +75,14 @@ Msfvenom, which replaced Msfpayload and Msfencode, allows us to generate payload
 
 `msfvenom`
 
-|option|description|
-|-|-|
-|`--list formats`|lists supported output formats|
-|`-l payloads`||
-|`-p PAYLOAD`||
-|`-e ENCODER`||
-|`-f FORMAT`||
+| option | description |
+| ---- | ---- |
+| `--list formats` | lists supported output formats |
+| `-l payloads` |  |
+| `-p PAYLOAD` |  |
+| `-e ENCODER` |  |
+| `-f FORMAT` | specifies the output format |
+| `-o FILE` | the output location and filename for the generated payload |
 
 ## Encoders
 Encoders can be effective against some antivirus software, however, using obfuscation techniques or learning methods to inject shellcode can be a better solution to the problem. We can use the encoder in msfvenom with the `-e` parameter followed by the encoding method like `-e php/base64`, which would encode the PHP version of meterpreter in Base64  
