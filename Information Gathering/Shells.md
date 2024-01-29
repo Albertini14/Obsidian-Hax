@@ -207,7 +207,7 @@ On linux, SSH keys stored at `/home/<user>/.ssh` are often an ideal way to do th
 
 On windows, the options are more limited. It is sometimes possible to find passwords for running services in the registry. VNC servers, for example frequently leave passwords in the registry stored in plaintext. Some versions of the FileZilla FTP server also leave credentials in an XML file  at `C:\Program Files\FileZilla Server\FileZilla Server.xml` or `C:\xampp\FileZilla Server\FileZilla Server.xml`. These can be MD5 hashes or in plaintext, depending on the version.
 
-Ideally on Windows we would obtain a shell running as the SYSTEM user, or and admin account. In such a situation it is possible to add our own account to the machine, then log in over [[RDP]], [[Telnet]], [[winexe]], [[psexec]], [[WinRM]], or any other method.
+Ideally on Windows we would obtain a shell running as the SYSTEM user, or an admin account. In such a situation it is possible to add our own account to the machine, then log in over [[RDP]], [[Telnet]], [[winexe]], [[psexec]], [[WinRM]], or any other method.
 The syntax for this is as follows
 ```
 net user <username> <password> /add

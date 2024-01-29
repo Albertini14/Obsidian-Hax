@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "fd19100113e93380",
+            "id": "7f93c6c00c38c884",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Information Gathering/Shells.md",
+                "file": "Information Gathering/Privilege Escalation.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 237.5,
-    "collapsed": true
+    "width": 237.5
   },
   "right": {
     "id": "ef7f711f59a50c5b",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Information Gathering/Shells.md",
+                "file": "Information Gathering/Privilege Escalation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Information Gathering/Shells.md",
+                "file": "Information Gathering/Privilege Escalation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Information Gathering/Shells.md"
+                "file": "Information Gathering/Privilege Escalation.md"
               }
             }
           }
@@ -148,41 +147,41 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "fd19100113e93380",
+  "active": "7f93c6c00c38c884",
   "lastOpenFiles": [
-    "Tools/Metasploit.md",
     "Information Gathering/Shells.md",
-    "Theory/Methodology.md",
+    "Information Gathering/Privilege Escalation.md",
+    "Tools/Metasploit.md",
+    "Tools/Netcat.md",
     "Information Gathering/Subdomain Enumeration.md",
-    "Network Security/Reconnaissance.md",
     "Network Security/Protocols And Servers.md",
+    "Network Security/Protocol Attack.md",
+    "Linux/Commands.md",
+    "Information Gathering/Authentication Bypass.md",
+    "Untitled.canvas",
+    "Tools/Nmap.md",
+    "Tools/GoBuster.md",
+    "Tools/dnsrecon.md",
+    "Tools/Bettercap.md",
+    "Tools/Privilege Escalation/Rubeus.md",
+    "Tools/Privilege Escalation/Remmina.md",
+    "Tools/Privilege Escalation/Evil-WinRM.md",
+    "Information Gathering/Exploitation.md",
+    "Information Gathering/Content Discovery.md",
+    "Tools/Privilege Escalation/Whisker.md",
+    "Tools/Ettercap.md",
+    "Tools/SSH.md",
+    "Untitled.md",
+    "Theory/Methodology.md",
+    "Network Security/Reconnaissance.md",
     "Network Security/Protocol Defense.md",
     "Theory/Tools/Tools.md",
-    "Null Byte.md",
-    "Tools/SSH.md",
-    "Tools/Privilege Escalation/Evil-WinRM.md",
-    "Tools/Privilege Escalation/Rubeus.md",
-    "Tools/Privilege Escalation/Whisker.md",
-    "Information Gathering/Authentication Bypass.md",
-    "Tools/Forensics/Volatility.md",
-    "Tools/Forensics/FTK Imager.md",
-    "Tools/Forensics/dnSpy.md",
-    "Tools/Firewall/PentBox.md",
-    "Tools/Firewall/ufw.md",
     "Tools/Firewall",
-    "SQLi.md",
     "Tools/Privilege Escalation",
-    "Information Gathering/Exploitation.md",
     "Tools/Forensics/Untitled",
-    "Tools/Hydra.md",
     "Tools/Forensics",
-    "Tools/wfuzz.md",
-    "Tools/ffuf.md",
-    "Tools/Wordlist gen/CeWL.md",
     "Tools/Wordlist gen",
-    "Tools/Wordlist gen/Crunch.md",
     "Untitled",
-    "Untitled.canvas",
     "Network Security",
     "Images/Pasted image 20231023154125.png",
     "Information Gathering",
