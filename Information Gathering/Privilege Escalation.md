@@ -29,7 +29,7 @@ Some sick wombo combos
 
 * `ps axfj` to view process tree
 * `ps aux` to check all processes as well as users
-* `ps aux | cut -d ' ' -f1 | sort | uniq` To list only the users
+	* `ps aux | cut -d ' ' -f1 | sort | uniq` To list only the users
 
 ### env
 The `env` command will show environmental variables, this can show us the home folder of our user, the shell being used and the PATH variable may have a compiler or a scripting language that could be used to run code on the target system or be leveraged for privilege escalation.
@@ -223,13 +223,13 @@ Now if non of them match, and we do not have write permissions to one of the alr
 export PATH=/tmp:$PATH
 ```
 Normally `/tmp` would be easiest as we more often than not will have permissions. We do this by using the `export` command which can set environment variables like `PATH`. So we just append the new directory to the already existing one.
-At this point we can try to create a script that tries to launch a system binary of our selection for example (escalation.c):
+At this point we can try to use and already existing script/application. In this case suppose that we found one that tries to launch a system binary for example (escalation.c):
 ```C
 #include<unistd.h>
 void main(){
 setuid(0);
 setgid(0);
-system("hack");
+system("/bin/bash");
 }
 ```
 This script will set itself as root and then try to run a binary called `hack`. As the path is not provided it will also look for it inside the folders listed under path. If we wanted to procede with this C example then we would have to compile it into and executable and set the SUID bit

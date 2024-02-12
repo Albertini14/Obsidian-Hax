@@ -15,7 +15,6 @@
               "state": {
                 "file": "Information Gathering/Privilege Escalation.md",
                 "mode": "source",
-                "backlinks": true,
                 "source": false
               }
             }
@@ -70,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 237.5,
-    "collapsed": true
+    "width": 237.5
   },
   "right": {
     "id": "ef7f711f59a50c5b",
@@ -151,15 +149,22 @@
   },
   "active": "7f93c6c00c38c884",
   "lastOpenFiles": [
-    "Linux/Commands.md",
+    "Information Gathering/Shells.md",
     "Information Gathering/Privilege Escalation.md",
-    "Tools/Netcat.md",
+    "Information Gathering/Exploitation.md",
+    "NoteBook/CTF - 1.md",
+    "Pasted image 20240206184525.png",
+    "Pasted image 20240205225738.png",
+    "Pasted image 20240205225312.png",
+    "Pasted image 20240129021530.png",
+    "Pasted image 20240204224116.png",
     "Openssl.md",
     "Tools/Privilege Escalation/Unshadow.md",
+    "Theory/Methodology.md",
+    "NoteBook",
+    "Linux/Commands.md",
+    "Tools/Netcat.md",
     "Tools/Nmap.md",
-    "Pasted image 20240129021530.png",
-    "Information Gathering/Shells.md",
-    "Information Gathering/Exploitation.md",
     "Information Gathering/Content Discovery.md",
     "Information Gathering/Authentication Bypass.md",
     "SQLi.md",
@@ -172,19 +177,15 @@
     "Teams/Blue team/Tools.md",
     "Teams/Blue team/Main areas.md",
     "Teams/Red Team/Web Apps.md",
-    "Theory/Methodology.md",
     "Tools/Privilege Escalation/Remmina.md",
     "Tools/Metasploit.md",
     "Information Gathering/Subdomain Enumeration.md",
     "Tools/GoBuster.md",
-    "Tools/dnsrecon.md",
-    "Tools/Bettercap.md",
     "Tools/Firewall",
     "Tools/Privilege Escalation",
     "Tools/Forensics/Untitled",
     "Tools/Forensics",
     "Tools/Wordlist gen",
-    "Untitled",
     "Network Security",
     "Images/Pasted image 20231023154125.png",
     "Information Gathering",
@@ -192,11 +193,7 @@
     "Images/Pasted image 20231023152952.png",
     "Images/Pasted image 20231019140816.png",
     "Images/Pasted image 20231017215332.png",
-    "Images/Pasted image 20231017215239.png",
     "Theory/Web",
-    "Linux",
-    "Images/Pasted image 20231014020537.png",
-    "Images/Pasted image 20231008194335.png",
-    "Images/Pasted image 20231008193005.png"
+    "Linux"
   ]
 }
