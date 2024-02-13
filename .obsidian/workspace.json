@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Information Gathering/Privilege Escalation.md",
+                "file": "Information Gathering/Shells.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Information Gathering/Privilege Escalation.md",
+                "file": "Information Gathering/Shells.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Information Gathering/Privilege Escalation.md",
+                "file": "Information Gathering/Shells.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Information Gathering/Privilege Escalation.md"
+                "file": "Information Gathering/Shells.md"
               }
             }
           }
@@ -149,37 +149,38 @@
   },
   "active": "7f93c6c00c38c884",
   "lastOpenFiles": [
-    "Information Gathering/Shells.md",
+    "Tools/Metasploit.md",
+    "Network Security/Reconnaissance.md",
     "Information Gathering/Privilege Escalation.md",
     "Information Gathering/Exploitation.md",
-    "NoteBook/CTF - 1.md",
+    "Information Gathering/Shells.md",
+    "Information Gathering/Authentication Bypass.md",
+    "Information Gathering/Content Discovery.md",
+    "Information Gathering/Subdomain Enumeration.md",
+    "Tools/Burp.md",
+    "Tools/Privilege Escalation/Unshadow.md",
     "Pasted image 20240206184525.png",
     "Pasted image 20240205225738.png",
     "Pasted image 20240205225312.png",
+    "Openssl.md",
+    "NoteBook/CTF - 1.md",
+    "NoteBook",
+    "Untitled.canvas",
     "Pasted image 20240129021530.png",
     "Pasted image 20240204224116.png",
-    "Openssl.md",
-    "Tools/Privilege Escalation/Unshadow.md",
     "Theory/Methodology.md",
-    "NoteBook",
     "Linux/Commands.md",
     "Tools/Netcat.md",
     "Tools/Nmap.md",
-    "Information Gathering/Content Discovery.md",
-    "Information Gathering/Authentication Bypass.md",
     "SQLi.md",
     "2024-01-29.md",
-    "Untitled.canvas",
     "Network Security/Protocols And Servers.md",
     "Network Security/Protocol Defense.md",
     "Network Security/Protocol Attack.md",
-    "Network Security/Reconnaissance.md",
     "Teams/Blue team/Tools.md",
     "Teams/Blue team/Main areas.md",
     "Teams/Red Team/Web Apps.md",
     "Tools/Privilege Escalation/Remmina.md",
-    "Tools/Metasploit.md",
-    "Information Gathering/Subdomain Enumeration.md",
     "Tools/GoBuster.md",
     "Tools/Firewall",
     "Tools/Privilege Escalation",

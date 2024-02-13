@@ -25,6 +25,7 @@ It also provides some options
 | `f` | sick formatting |
 | `j` | more sick formatting |
 | `u` | shows user name |
+
 Some sick wombo combos
 
 * `ps axfj` to view process tree
