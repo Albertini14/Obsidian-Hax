@@ -2,7 +2,7 @@
   "excludeLangs": [
     "todoist"
   ],
-  "showLangName": false,
-  "showLineNumber": false,
+  "showLangName": true,
+  "showLineNumber": true,
   "useContextMenu": true
 }

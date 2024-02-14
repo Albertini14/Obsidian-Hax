@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Information Gathering/Shells.md",
+                "file": "Information Gathering/Privilege Escalation.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 237.5
+    "width": 237.5,
+    "collapsed": true
   },
   "right": {
     "id": "ef7f711f59a50c5b",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Information Gathering/Shells.md",
+                "file": "Information Gathering/Privilege Escalation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Information Gathering/Shells.md",
+                "file": "Information Gathering/Privilege Escalation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Information Gathering/Shells.md"
+                "file": "Information Gathering/Privilege Escalation.md"
               }
             }
           }
@@ -149,11 +150,11 @@
   },
   "active": "7f93c6c00c38c884",
   "lastOpenFiles": [
+    "Information Gathering/Shells.md",
+    "Information Gathering/Privilege Escalation.md",
     "Tools/Metasploit.md",
     "Network Security/Reconnaissance.md",
-    "Information Gathering/Privilege Escalation.md",
     "Information Gathering/Exploitation.md",
-    "Information Gathering/Shells.md",
     "Information Gathering/Authentication Bypass.md",
     "Information Gathering/Content Discovery.md",
     "Information Gathering/Subdomain Enumeration.md",

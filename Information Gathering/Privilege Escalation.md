@@ -277,3 +277,86 @@ chmod +s nfs
 ```
 And finally run it in the target machine to gain a shell with root.
 
+# Windows
+To start, escalation works in the with the same idea in mind. Windows systems mainly have two kinds of users.
+
+| Users | Privileges |
+| ---- | ---- |
+| Administrators | These users have the most privileges. They can change any system configuration parameter and access any file in the system |
+| Standard Users | These users can access the computer but only perform limited tasks. Typically these users can not make permanent or essential changes to the system and are limited to their files. |
+
+In addition to that, there are some special built-in accounts used by the operating system in the context of privilege escalation:
+
+| Users | Privileges |
+| ---- | ---- |
+| SYSTEM / LocalSystem | An account used by the operation system to perform internal tasks. It has full access to all files and resources available on the host with even higher privileges than administrators. |
+| Local Service | Default account used to run Windows services with "minimum" privileges. It will use anonymous connections over the network. |
+| Network Service | Default account used to run Windows services with "minimum" privileges. It will use the computer credentials to authenticate through the network. |
+These accounts are created and managed by windows, and we won't be able to use them as other regular accounts.
+
+## Reaping Passwords
+The easiest way to gain access to another user is to gather the credentials from a compromised machine (duh). For some careless people, leaving the credentials in the open is not a far fetched scenario, checking for plain text files, audio, images or even stored by some software like browsers or email clients.
+### Unattended Windows Installations
+When installing Windows on a large number of hosts, administrators may use Windows Deployment Services, which allows for a single operating system image to be deployed to several hosts through the network. These kinds of installations are referred to as unattended installations as they don't requiere users interaction. Such installations require the use of an administrator account to perform the initial setup, which might end up being stored in the machine in the following locations:
+```
+C:\Unattend.xml
+C:\Windows\Panther\Unattend.xml
+C:\Windows\Panther\Unattend\Unattend.xml
+C:\Windows\system32\sysprep.inf
+C:\Windows\system32\sysprep\sysprep.xml
+```
+As part of these files, we may encounter credentials such as:
+```
+<Credentials>
+    <Username>Administrator</Username>
+    <Domain>you.tube</Domain>
+    <Password>MyPassword123</Password>
+</Credentials>
+```
+
+### Powershell history
+Whenever a user runs a command using Powershell, it gets stored into a file that keeps a memory of past commands. If a user runs a command that includes a password directly as part of the Powershell command line, it can later be retrieved by using the following command from a `cmd.exe` prompt:
+```
+type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+```
+Note that this command will only work from cmd as Powershell wont't recognize `%userprofile%` as an environment variable. To read the fiel from Powershell, we'd have to replace it with `$Env:userprofile`
+
+### Saved Windows Credentials
+Windows allows us to use other user's credentials, this function also gives the option to save these credentials on the system. the command below will list saved credentials:
+```
+cmdkey /list
+```
+While we can't see the actual passwords, if we notice any credentials worth trying, we can use them with the `runas` command and the `/savecred` option:
+```
+runas /savecred /user:admin cmd.exe
+```
+
+### IIS Configuration
+Internet Information Services (IIS) is the default web server on Windows installations. The configuration of websites on IIS is stored in a file called `web.config` and can store passwords for databases or configured authentication mechanisms. Depending on the installed versions of IIS, we can find web.config in one of the following locations:
+```
+C:\inetpub\wwwroot\web.config
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config
+```
+Here is a quick way to find database connection strings on the file:
+```
+type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString
+```
+
+### Software: PuTTY
+PuTTY is an SSH client commonly found on Windows systems. Instead of having to specify a connection's parameters every single time, users can store sessions where the IP, user and other configurations can be stored for later use. While PuTTY won't allow users to store their SSH password, it will store proxy configurations that include cleartext authentication credentials.
+To retrieve the stored proxy credentials, we can search under the following registry key for ProxyPassword with the following command:
+```
+reg query HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\ /f "Proxy" /s
+```
+
+Just as PuTTY stores credentials, any software that stores passwords, including broswers, email clients, FTP clients, SSH clients, VNC software and others, will have methods to recover any passwords the user has saved.
+
+## Quick Ws
+
+## Abusing Service Misconfigurations
+
+## Dangerous Privileges
+
+## Vulnerable Software
+
+## ToT
