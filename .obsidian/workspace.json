@@ -150,9 +150,9 @@
   },
   "active": "7f93c6c00c38c884",
   "lastOpenFiles": [
-    "Information Gathering/Shells.md",
-    "Information Gathering/Privilege Escalation.md",
     "Tools/Metasploit.md",
+    "Information Gathering/Privilege Escalation.md",
+    "Information Gathering/Shells.md",
     "Network Security/Reconnaissance.md",
     "Information Gathering/Exploitation.md",
     "Information Gathering/Authentication Bypass.md",

