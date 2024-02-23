@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Information Gathering/Privilege Escalation.md",
+                "file": "Theory/Hashes.md",
                 "mode": "source",
                 "source": false
               }
@@ -65,13 +65,11 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 236.5,
-    "collapsed": true
+    "width": 236.5
   },
   "right": {
     "id": "ef7f711f59a50c5b",
@@ -87,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Information Gathering/Privilege Escalation.md",
+                "file": "Theory/Hashes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Information Gathering/Privilege Escalation.md",
+                "file": "Theory/Hashes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Information Gathering/Privilege Escalation.md"
+                "file": "Theory/Hashes.md"
               }
             }
           }
@@ -151,8 +149,11 @@
   },
   "active": "67f6fe3264580cbf",
   "lastOpenFiles": [
-    "Tools/Privilege Escalation/Unshadow.md",
+    "Tools/Nmap.md",
+    "Theory/Hashes.md",
+    "Tools/Netcat.md",
     "Information Gathering/Privilege Escalation.md",
+    "Tools/Privilege Escalation/Unshadow.md",
     "John The Ripper.md",
     "Tools/Metasploit.md",
     "Tools/Privilege Escalation/Remmina.md",
@@ -177,9 +178,6 @@
     "Tools/Forensics/Volatility.md",
     "Tools/Privilege Escalation/Evil-WinRM.md",
     "Tools/Privilege Escalation/Rubeus.md",
-    "Tools/Privilege Escalation/Whisker.md",
-    "Information Gathering/Shells.md",
-    "Network Security/Reconnaissance.md",
     "NoteBook",
     "Untitled.canvas",
     "Pasted image 20240129021530.png",

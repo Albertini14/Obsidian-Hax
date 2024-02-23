@@ -10,11 +10,12 @@ nmap IP - scans an IP
 |TCP ACK Ping Scan|`sudo nmap -PA22,80,443 -sn MACHINE_IP/30`|
 |UDP Ping Scan|`sudo nmap -PU53,161,162 -sn MACHINE_IP/30`|
 
-|Option|Purpose|
-|---|---|
-|`-n`|no DNS lookup|
-|`-R`|reverse-DNS lookup for all hosts|
-|`-sn`|host discovery only|
+| Option | Purpose |
+| ---- | ---- |
+| `-n` | no DNS lookup |
+| `-R` | reverse-DNS lookup for all hosts |
+| `-sn` | host discovery only |
+| `-Pn` | does not ping a host before scanning it |
 
 |Port Scan Type|Example Command|
 |---|---|
@@ -103,7 +104,7 @@ By sending SYN packets to each port we can see how that port reacts, if we recei
 Unprivileged users are limited to connect scan. However, the default scan mode is SYN scan and it requires root to run it. SYN scan does not need to complete the TCP 3-way handshake, instead, it tears down the connection once it receives a response from the server. 
 Thanks to the TCP connection not being established, this lowers our chances of the scan being logged. We can select this scan by using `-sS`
 ## UDP Scan
-UDP is a connectionless protocol that does not requiere any handshake. Thus we cannot guarantee that a service listening on a UDP port is going to respong to our packets, however, if a UDP packet is sent to a closed port, an ICMP port unreachable error (type 3, code 3) is returned, allowing us to know which ports are closed, thus, also knowing which ones are open. We use this type of scan with `-sU`
+UDP is a connectionless protocol that does not requiere any handshake. Thus we cannot guarantee that a service listening on a UDP port is going to respond to our packets, however, if a UDP packet is sent to a closed port, an ICMP port unreachable error (type 3, code 3) is returned, allowing us to know which ports are closed, thus, also knowing which ones are open or filtered. We use this type of scan with `-sU`
 ## Null Scan
 The null scan does not set any flag, all six flag bits are set to zero, we can use this with `-sN`. A TCP packet with no flags set will not trigger a response when it reaches an open port, therefore, from Nmap's perspective a lack of reply indicates that either the port is open or a firewall is blocking the packet, due to the fact that, if a port is closed it will respond with a RST/ACK packet. Needs root.
 ## FIN Scan
@@ -164,7 +165,7 @@ Nmap Scripting Engine is a part of Nmap that allows a Lua interpreter to execute
 |`exploit`|Attempts to exploit various vulnerable services|
 |`external`|Checks using a third-party service, such as Geoplugin and Virustotal|
 |`fuzzer`|Launch fuzzing attacks|
-|`intrusive`|Intrusive scripts such as brute-force attacks and exploitation|
+|`intrusive`|Brute-force attacks and exploitation, may damage target |
 |`malware`|Scans for backdoors|
 |`safe`|Safe scripts that won’t crash the target|
 |`version`|Retrieve service versions|
@@ -172,6 +173,8 @@ Nmap Scripting Engine is a part of Nmap that allows a Lua interpreter to execute
 
 with some scripts belonging to more than one category, some may be dangerous and can even crash services so be careful.
 We can also specify the script by name using `--script "SCRIPT_NAME"` or a pattern such as `--script "ftp*"`, which would include every script starting with ftp
+
+A full list of scripts and their corresponding arguments (along with example use cases) can be found [here](https://nmap.org/nsedoc/).
 
 # Saving Output
 Whenever we are running an Nmap scan, it is good practice to save the results in a file. There are 4 formats.
@@ -187,3 +190,19 @@ This format has its name from the command `grep`, standing for Global Regular Ex
 We can also save the results in XML format using `-oX FILENAME`, this would be the most convenient to process the output in other programs. 
 ## 5cR1P7 KiDD13
 7H15 F0rM47 F0110W5 7H3 31337 5UP4 H4X0r 41PH4 M1ND537 4ND 17 C0U1D N07 83 M0r3 U531355 `-oS F1l3N4M3` 
+
+# Evasion
+Your typical Windows host will, with its default firewall, block all ICMP packets. This presents a problem: not only do we often use _ping_ to manually establish the activity of a target, Nmap does the same thing by default. This means that Nmap will register a host with this firewall configuration as dead and not bother scanning it at all.
+
+So, we need a way to get around this configuration. Fortunately Nmap provides an option for this: `-Pn`, which tells Nmap to not bother pinging the host before scanning it. This means that Nmap will always treat the target host(s) as being alive, effectively bypassing the ICMP block; however, it comes at the price of potentially taking a very long time to complete the scan (if the host really is dead then Nmap will still be checking and double checking every specified port).
+
+It's worth noting that if we've already directly on the local network, Nmap can also use ARP requests to determine host activity.
+
+There are a variety of other switches which Nmap considers useful for firewall evasion. Refer to [here](https://nmap.org/book/man-bypass-firewalls-ids.html).
+
+The following switches are of particular note:
+
+- `-f`:- Used to fragment the packets (i.e. split them into smaller pieces) making it less likely that the packets will be detected by a firewall or IDS.
+- An alternative to `-f`, but providing more control over the size of the packets: `--mtu <number>`, accepts a maximum transmission unit size to use for the packets sent. This _must_ be a multiple of 8.
+- `--scan-delay <time>ms`:- used to add a delay between packets sent. This is very useful if the network is unstable, but also for evading any time-based firewall/IDS triggers which may be in place.
+- `--badsum`:- this is used to generate in invalid checksum for packets. Any real TCP/IP stack would drop this packet, however, firewalls may potentially respond automatically, without bothering to check the checksum of the packet. As such, this switch can be used to determine the presence of a firewall/IDS.

@@ -540,5 +540,51 @@ This will essentially execute the RogueWinRM.exe, starting a fake WinRM and impe
 
 
 ## Vulnerable Software
+### Unpatched Software
+The holy grail, just as with drivers, organisations and users may not update them as often as they update the operating system. We can use the `wmic` tool to list software installed on the target system and its versions. The following command will dump information it can gather on installed software
+```
+wmic product get name,version,vendor
+```
+This command may not return all installed programs. Depending on how some of the programs were installed, they might not get listed here. That's why it is important to also check desktop shortcuts, "App & browser control" in windows security, installed apps in config, available services or generally any trace that indicates the existence of additional software that might be vulnerable.
+Once we have gathered product version info, we can search for existing exploits on sites like [exploit-db](https://www.exploit-db.com/) 
 
-## ToT
+## Enumeration
+Several scripts exist to conduct system enumeration, these tools shorten the enumeration process time and uncover different potential privilege escalation vectors. However, these can sometimes miss routes, so checking manually is always worthwhile.
+### WinPEAS
+WinPEAS is a script developed to enumerate the target system to uncover privilege escalation paths. For info and download refer to [WinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS). It will run commands similar to previous methods and print their output, as this can be rather lengthy it is always good practice to redirect it.
+```
+winpeas.exe > output.txt
+```
+
+### PrivescCheck
+PrivescCheck is a PowerShell script that searches common privilege escalation on the target system. It provides an alternative to WinPEAS without requiring the execution of a binary file. Info and download [PrivescCheck](https://github.com/itm4n/PrivescCheck).
+To be able to run it, we may need to bypass the execution policy restrictions. To do this we can use 
+```Powershell
+Set-ExecutionPolicy Bypass -Scope process -Force 
+. .\PrivescCheck.ps1 
+Invoke-PrivescCheck
+```
+### WES-NG
+Some exploit suggesting scripts like WinPEAS will requiere us to upload them to the target system and run them there. This may cause antivirus software to detect and delete them. To avoid alerting and be more ninja-like we can use Windows Exploit Suggester - Next Generation (WES-NG), which will run on our attacking machine.
+WES-NG is a Python script that can be found and downloaded [here](https://github.com/bitsadmin/wesng).
+Once installed, and before using it, we can enter `wes.py --update` to update the database. Checking for missing patches that can result in a vulnerability we can use to escalate.
+To run the script we need to run the `systeminfo` command on the target system. We can then take the output from it and give it to WES-NG as an argument like so
+```sh
+wes.py sysinfo.txt
+```
+
+### Metasploit
+The holy fucking grail
+If we already have a Meterpreter shell on the target system we can use the `multi/recon/local_exploit_suggester` module to list vulnerabilities that may affect the target system and allow us to elevate privileges on the target system.
+
+## Referrals
+- [PayloadsAllTheThings - Windows Privilege Escalation](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md)
+- [Priv2Admin - Abusing Windows Privileges](https://github.com/gtworek/Priv2Admin)
+- [RogueWinRM Exploit](https://github.com/antonioCoco/RogueWinRM)
+- [Potatoes](https://jlajara.gitlab.io/others/2020/11/22/Potatoes_Windows_Privesc.html)
+- [Decoder's Blog](https://decoder.cloud/)
+- [Token Kidnapping](https://dl.packetstormsecurity.net/papers/presentations/TokenKidnapping.pdf)
+- [Hacktricks - Windows Local Privilege Escalation](https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation)
+- [LOLBAS](https://lolbas-project.github.io)
+- [LOLDrivers](https://www.loldrivers.io)
+- [WADComs](https://wadcoms.github.io)
