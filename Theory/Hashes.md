@@ -6,7 +6,7 @@ Windows passwords are hashed using NTLM, which is a variant of md4. They're visu
 
 On Linux, password hashes are stored in /etc/shadow. This file is normally only readable by root. They used to be stored in /etc/passwd, and were readable by everyone.
 
-On Windows, password hashes are stored in the SAM. Windows tries to prevent normal users from dumping them, but tools like mimikatz exist for this. Importantly, the hashes found there are split into NT hashes and LM hashes.
+On Windows, password hashes are stored in the SAM. Windows tries to prevent normal users from dumping them, but tools like [[mimikatz]] exist for this. Importantly, the hashes found there are split into NT hashes and LM hashes.
 
 Here's a quick table of the most Unix style password prefixes that you'll see.
 
@@ -21,8 +21,18 @@ A great place to find more hash formats and password prefixes is the [hashcat](h
 For other hash types, you'll normally need to go by length, encoding or some research into the application that generated them. Never underestimate the power of research.
 
 
+# Identifying Hashes
+There are multiple ways to do this, such as using an online hash identifier like [this one](https://hashes.com/en/tools/hash_identifier). Or this python tool that will tell use what different types of hashes the one we provided is likely to be if the first one fails. To use the latter we can pull the python file from gitlab
+```sh
+wget https://gitlab.com/kalilinux/packages/hash-identifier/-/raw/kali/master/hash-id.py
+```
+and use it like so
+```sh
+python3 hash-id.py
+```
+
 # Cracking Hashes
-You can't "decrypt" password hashes. They're not encrypted. You have to crack the hashes by hashing a large number of different inputs (often rockyou, these are the possible passwords), potentially adding the salt if there is one and comparing it to the target hash. Once it matches, you know what the password was. Tools like Hashcat and John the Ripper are normally used for this.
+We can't "decrypt" password hashes. They're not encrypted. We have to crack the hashes by hashing a large number of different inputs (often rockyou), potentially adding the salt if there is one and comparing it to the target hash. Once it matches, we know what the password was. Tools like Hashcat and [[John the Ripper]] are normally used for this.
 
 ## Why crack on GPUs?
 
@@ -47,4 +57,4 @@ Hashing can be used to check that files haven't been changed. If you put the sam
 
 ## HMACs
 
-HMAC is a method of using a cryptographic hashing function to verify the authenticity and integrity of data. The TryHackMe VPN uses HMAC-SHA512 for message authentication, which you can see in the terminal output. A HMAC can be used to ensure that the person who created the HMAC is who they say they are (authenticity), and that the message hasn’t been modified or corrupted (integrity). They use a secret key, and a hashing algorithm in order to produce a hash.
+HMAC is a method of using a cryptographic hashing function to verify the authenticity and integrity of data. A HMAC can be used to ensure that the person who created the HMAC is who they say they are (authenticity), and that the message hasn’t been modified or corrupted (integrity). They use a secret key, and a hashing algorithm in order to produce a hash.

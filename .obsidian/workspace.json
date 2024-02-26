@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Theory/Hashes.md",
+                "file": "Tools/John The Ripper.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "mimika",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,11 +65,13 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 236.5
+    "width": 236.5,
+    "collapsed": true
   },
   "right": {
     "id": "ef7f711f59a50c5b",
@@ -85,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Theory/Hashes.md",
+                "file": "Tools/John The Ripper.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Theory/Hashes.md",
+                "file": "Tools/John The Ripper.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Theory/Hashes.md"
+                "file": "Tools/John The Ripper.md"
               }
             }
           }
@@ -149,12 +151,13 @@
   },
   "active": "67f6fe3264580cbf",
   "lastOpenFiles": [
-    "Tools/Nmap.md",
     "Theory/Hashes.md",
+    "Tools/John The Ripper.md",
+    "Tools/Wordlist gen/Wordlist links.md",
+    "Tools/Nmap.md",
     "Tools/Netcat.md",
     "Information Gathering/Privilege Escalation.md",
     "Tools/Privilege Escalation/Unshadow.md",
-    "John The Ripper.md",
     "Tools/Metasploit.md",
     "Tools/Privilege Escalation/Remmina.md",
     "Tools/Hydra.md",
@@ -177,7 +180,6 @@
     "Tools/Forensics/FTK Imager.md",
     "Tools/Forensics/Volatility.md",
     "Tools/Privilege Escalation/Evil-WinRM.md",
-    "Tools/Privilege Escalation/Rubeus.md",
     "NoteBook",
     "Untitled.canvas",
     "Pasted image 20240129021530.png",
