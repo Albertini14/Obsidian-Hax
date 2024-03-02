@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/John The Ripper.md",
+                "file": "Theory/OWASP - Top 10.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "mimika",
+                "query": "http.",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -87,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/John The Ripper.md",
+                "file": "Theory/OWASP - Top 10.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/John The Ripper.md",
+                "file": "Theory/OWASP - Top 10.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/John The Ripper.md"
+                "file": "Theory/OWASP - Top 10.md"
               }
             }
           }
@@ -151,35 +151,36 @@
   },
   "active": "67f6fe3264580cbf",
   "lastOpenFiles": [
-    "Theory/Hashes.md",
-    "Tools/John The Ripper.md",
-    "Tools/Wordlist gen/Wordlist links.md",
-    "Tools/Nmap.md",
-    "Tools/Netcat.md",
+    "Pasted image 20240302000639.png",
+    "Pasted image 20240302000624.png",
     "Information Gathering/Privilege Escalation.md",
-    "Tools/Privilege Escalation/Unshadow.md",
-    "Tools/Metasploit.md",
-    "Tools/Privilege Escalation/Remmina.md",
+    "Information Gathering/Shells.md",
+    "Theory/OWASP - Top 10.md",
     "Tools/Hydra.md",
-    "Tools/GoBuster.md",
+    "Tools/Netcat.md",
+    "Tools/PdfInfo.md",
+    "Tools/SSH.md",
+    "Tools/Sublist3r.md",
+    "Tools/Telnet.md",
     "Tools/wfuzz.md",
-    "Openssl.md",
+    "Information Gathering/Exploitation.md",
+    "Information Gathering/Content Discovery.md",
+    "Information Gathering/Authentication Bypass.md",
+    "Information Gathering/Subdomain Enumeration.md",
+    "Tools/John The Ripper.md",
+    "Tools/Metasploit.md",
+    "Theory/Cryptography.md",
     "Pasted image 20240205225312.png",
     "Pasted image 20240205225738.png",
     "Pasted image 20240206184525.png",
-    "SQLi.md",
-    "Tools/Telnet.md",
-    "Tools/Sublist3r.md",
-    "Tools/SSH.md",
-    "Tools/ExifTool.md",
-    "Tools/Bettercap.md",
-    "Tools/Ettercap.md",
-    "Tools/Firewall/ufw.md",
-    "Tools/Firewall/PentBox.md",
-    "Tools/Forensics/dnSpy.md",
-    "Tools/Forensics/FTK Imager.md",
-    "Tools/Forensics/Volatility.md",
-    "Tools/Privilege Escalation/Evil-WinRM.md",
+    "NoteBook/CTF - 1.md",
+    "Theory/Hashes.md",
+    "Tools/Wordlist gen/Wordlist links.md",
+    "Tools/Nmap.md",
+    "Tools/Privilege Escalation/Unshadow.md",
+    "Tools/Privilege Escalation/Remmina.md",
+    "Tools/GoBuster.md",
+    "Openssl.md",
     "NoteBook",
     "Untitled.canvas",
     "Pasted image 20240129021530.png",
@@ -195,7 +196,6 @@
     "Images/Pasted image 20231023154000.png",
     "Images/Pasted image 20231023152952.png",
     "Images/Pasted image 20231019140816.png",
-    "Images/Pasted image 20231017215332.png",
     "Theory/Web",
     "Linux"
   ]

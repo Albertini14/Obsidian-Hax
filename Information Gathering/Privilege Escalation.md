@@ -86,7 +86,7 @@ hax list:
 - `... -type d 2>/dev/null`: redirect errors to /dev/null and have a cleaner output
 
 Folders and files that can be written to or executed from:
-- `find / -writable -type d 2>/dev/null` : Find world-writeable folders
+- `find / -writable -type d 2 >/dev/null` : Find world-writeable folders
 - `find / -perm -222 -type d 2>/dev/null`: Find world-writeable folders
 - `find / -perm -o w -type d 2>/dev/null`: Find world-writeable folders
 - `find / -perm -o x -type d 2>/dev/null` : Find world-executable folders
@@ -277,6 +277,22 @@ chmod +s nfs
 ```
 And finally run it in the target machine to gain a shell with root.
 
+## Backshoting
+Once we are inside a system, we can try to to leave a backdoor behind in order to come back another time.
+### SSH keys
+If login with [[Cryptography#SSH Authentication|SSH keys]] is enabled for users but a key is not already in place for them we can add create our own pair of keys and leave the public key in the target machine for us to quickly come later and with a stable shell. By creating a key in our machine with 
+```sh
+ssh-keygen
+```
+to then either copy the public key manually into `authorized keys` with `cat`, transferring the public key file into the `~/.ssh` folder or use
+```sh
+ssh-copy-id -i [privatekey] user@host
+```
+for it to automatically add the corresponding public key to the user in the target machine. And finally we can enter at any time with
+```sh
+ssh -i [privatekey] user@host
+```
+
 # Windows
 To start, escalation works in the with the same idea in mind. Windows systems mainly have two kinds of users.
 
@@ -392,7 +408,7 @@ msiexec /quit /qn /i C:\Windows\Temp\malicious.msi
 ## Abusing Service Misconfigurations
 Windows services are managed by the Service Control Manager (SCM). The SCM is a process in charge of managing the state of services as needed, checking the current status of any given service and generally providing a way to configure services.
 
-Each service on a windows machine will have an associated executable which will be run by the SCM whenever a service is started. It is importante to note that service executables implement special functions to be able to communicate with the SCM, and therefore not any executable can be started as a service successfully. Each service also specifies the user account under which the service will run.
+Each service on a windows machine will have an associated executable which will be run by the SCM whenever a service is started. It is important to note that service executables implement special functions to be able to communicate with the SCM, and therefore not any executable can be started as a service successfully. Each service also specifies the user account under which the service will run.
 To better understand the structure of a service we can use `sc qc SERVICE` to check it.
 Here we can see that the associated executable is specified through the `BINARY_PATH_NAME` and the account used to run the service is shown on the `SERVICE_START_NAME` parameter.
 
