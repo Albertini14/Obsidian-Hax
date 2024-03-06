@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Theory/OWASP - Top 10.md",
+                "file": "Null Byte.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "http.",
+                "query": "sql",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,13 +65,11 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 236.5,
-    "collapsed": true
+    "width": 236.5
   },
   "right": {
     "id": "ef7f711f59a50c5b",
@@ -87,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Theory/OWASP - Top 10.md",
+                "file": "Null Byte.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Theory/OWASP - Top 10.md",
+                "file": "Null Byte.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Theory/OWASP - Top 10.md"
+                "file": "Null Byte.md"
               }
             }
           }
@@ -151,19 +149,19 @@
   },
   "active": "67f6fe3264580cbf",
   "lastOpenFiles": [
+    "Tools/Hydra.md",
+    "Information Gathering/Exploitation.md",
+    "Theory/OWASP - Top 10.md",
     "Pasted image 20240302000639.png",
     "Pasted image 20240302000624.png",
     "Information Gathering/Privilege Escalation.md",
     "Information Gathering/Shells.md",
-    "Theory/OWASP - Top 10.md",
-    "Tools/Hydra.md",
     "Tools/Netcat.md",
     "Tools/PdfInfo.md",
     "Tools/SSH.md",
     "Tools/Sublist3r.md",
     "Tools/Telnet.md",
     "Tools/wfuzz.md",
-    "Information Gathering/Exploitation.md",
     "Information Gathering/Content Discovery.md",
     "Information Gathering/Authentication Bypass.md",
     "Information Gathering/Subdomain Enumeration.md",
@@ -195,7 +193,6 @@
     "Information Gathering",
     "Images/Pasted image 20231023154000.png",
     "Images/Pasted image 20231023152952.png",
-    "Images/Pasted image 20231019140816.png",
     "Theory/Web",
     "Linux"
   ]
