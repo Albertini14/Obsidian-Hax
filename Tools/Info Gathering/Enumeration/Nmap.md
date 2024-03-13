@@ -17,24 +17,24 @@ nmap IP - scans an IP
 | `-sn` | host discovery only |
 | `-Pn` | does not ping a host before scanning it |
 
-|Port Scan Type|Example Command|
-|---|---|
-|TCP Connect Scan|`nmap -sT 10.10.105.22`|
-|TCP SYN Scan|`sudo nmap -sS 10.10.105.22`|
-|UDP Scan|`sudo nmap -sU 10.10.105.22`|
-|TCP Null Scan|`sudo nmap -sN 10.10.39.248`|
-|TCP FIN Scan|`sudo nmap -sF 10.10.39.248`|
-|TCP Xmas Scan|`sudo nmap -sX 10.10.39.248`|
-|TCP Maimon Scan|`sudo nmap -sM 10.10.39.248`|
-|TCP ACK Scan|`sudo nmap -sA 10.10.39.248`|
-|TCP Window Scan|`sudo nmap -sW 10.10.39.248`|
-|Custom TCP Scan|`sudo nmap --scanflags URGACKPSHRSTSYNFIN 10.10.39.248`|
-|Spoofed Source IP|`sudo nmap -S SPOOFED_IP 10.10.39.248`|
-|Spoofed MAC Address|`--spoof-mac SPOOFED_MAC`|
-|Decoy Scan|`nmap -D DECOY_IP,ME 10.10.39.248`|
-|Idle (Zombie) Scan|`sudo nmap -sI ZOMBIE_IP 10.10.39.248`|
-|Fragment IP data into 8 bytes|`-f`|
-|Fragment IP data into 16 bytes|`-ff`|
+| Port Scan Type                 | Example Command                                         |
+| ------------------------------ | ------------------------------------------------------- |
+| TCP Connect Scan               | `nmap -sT 10.10.105.22`                                 |
+| TCP SYN Scan                   | `sudo nmap -sS 10.10.105.22`                            |
+| UDP Scan                       | `sudo nmap -sU 10.10.105.22`                            |
+| TCP Null Scan                  | `sudo nmap -sN 10.10.39.248`                            |
+| TCP FIN Scan                   | `sudo nmap -sF 10.10.39.248`                            |
+| TCP Xmas Scan                  | `sudo nmap -sX 10.10.39.248`                            |
+| TCP Maimon Scan                | `sudo nmap -sM 10.10.39.248`                            |
+| TCP ACK Scan                   | `sudo nmap -sA 10.10.39.248`                            |
+| TCP Window Scan                | `sudo nmap -sW 10.10.39.248`                            |
+| Custom TCP Scan                | `sudo nmap --scanflags URGACKPSHRSTSYNFIN 10.10.39.248` |
+| Spoofed Source IP              | `sudo nmap -S SPOOFED_IP 10.10.39.248`                  |
+| Spoofed MAC Address            | `--spoof-mac SPOOFED_MAC`                               |
+| Decoy Scan                     | `nmap -D DECOY_IP,ME 10.10.39.248`                      |
+| Idle (Zombie) Scan             | `sudo nmap -sI ZOMBIE_IP 10.10.39.248`                  |
+| Fragment IP data into 8 bytes  | `-f`                                                    |
+| Fragment IP data into 16 bytes | `-ff`                                                   |
 
 |Option|Purpose|
 |---|---|
@@ -54,21 +54,25 @@ nmap IP - scans an IP
 |`-d`|debugging|
 |`-dd`|more details for debugging|
 
-|Option|Meaning|
-|---|---|
-|`-sV`|determine service/version info on open ports|
-|`-sV --version-light`|try the most likely probes (2)|
-|`-sV --version-all`|try all available probes (9)|
-|`-O`|detect OS|
-|`--traceroute`|run traceroute to target|
-|`--script=SCRIPTS`|Nmap scripts to run|
-|`-sC` or `--script=default`|run default scripts|
-|`-A`|equivalent to `-sV -O -sC --traceroute`|
-|`-oN`|save output in normal format|
-|`-oG`|save output in grepable format|
-|`-oX`|save output in XML format|
-|`-oA`|save output in normal, XML and Grepable formats|
-
+| Option                      | Meaning                                         |
+| --------------------------- | ----------------------------------------------- |
+| `-sV`                       | determine service/version info on open ports    |
+| `-sUV`                      | determine service/version on UDP ports          |
+| `-sV --version-light`       | try the most likely probes (2)                  |
+| `-sV --version-all`         | try all available probes (9)                    |
+| `-O`                        | detect OS                                       |
+| `--traceroute`              | run traceroute to target                        |
+| `--script=SCRIPTS`          | Nmap scripts to run                             |
+| `-sC` or `--script=default` | run default scripts                             |
+| `-A`                        | equivalent to `-sV -O -sC --traceroute`         |
+| `-oN`                       | save output in normal format                    |
+| `-oG`                       | save output in grepable format                  |
+| `-oX`                       | save output in XML format                       |
+| `-oA`                       | save output in normal, XML and Grepable formats |
+Aggresive bish
+```sh
+nmap IP -A -P- -oN version-scan
+```
 
 # Discover Live Hosts
 ## Enumerating Targets
