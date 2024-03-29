@@ -39,7 +39,7 @@ Google dorking utilises google's advanced search engine features to pick out cus
 |intitle|intitle:admin|returns results that contain the specified word in the title|
 
 ### Wappalyzer
-Is an online tool and browser extension that helps identify waht technologies a website uses, such as frameworks, content management systems (CMS), payment processors and much more
+Is an online tool and browser extension that helps identify what technologies a website uses, such as frameworks, content management systems (CMS), payment processors and much more
 [Wappalyzer](https://www.wappalyzer.com/)
 
 ### Wayback Machine
@@ -50,7 +50,7 @@ Is a historical archive of websites that dates back to the late 90s. It will sho
 You can use GitHub's search feature to look for company names or website names to try and locate repositories belonging to the target, and even have access to source code, passwords or other content.
 
 ### S3 Buckets
-S3 bucjets are a storage service provided by amazon AWS, allowing people to save files and even static website content in the cloud. The owner can set access permissions but if incorrectly set you can have access to files that shouldn't be available.
+S3 buckets are a storage service provided by amazon AWS, allowing people to save files and even static website content in the cloud. The owner can set access permissions but if incorrectly set you can have access to files that shouldn't be available.
 
 	 http(s)://{name}.s3.amazonaws.com
 

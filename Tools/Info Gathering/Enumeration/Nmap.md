@@ -71,7 +71,7 @@ nmap IP - scans an IP
 | `-oA`                       | save output in normal, XML and Grepable formats |
 Aggresive bish
 ```sh
-nmap IP -A -P- -oN version-scan
+nmap IP -A -p- -oN version-scan -vv
 ```
 
 # Discover Live Hosts
