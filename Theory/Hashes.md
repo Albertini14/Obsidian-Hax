@@ -32,7 +32,7 @@ python3 hash-id.py
 ```
 
 # Cracking Hashes
-We can't "decrypt" password hashes. They're not encrypted. We have to crack the hashes by hashing a large number of different inputs (often rockyou), potentially adding the salt if there is one and comparing it to the target hash. Once it matches, we know what the password was. Tools like Hashcat and [[John the Ripper]] are normally used for this.
+We can't "decrypt" password hashes. They're not encrypted. We have to crack the hashes by hashing a large number of different inputs (often rockyou), potentially adding the salt if there is one and comparing it to the target hash. Once it matches, we know what the password was. Tools like Hashcat and [[John The Ripper]] are normally used for this.
 
 ## Why crack on GPUs?
 

@@ -16,7 +16,7 @@ Focuses on analyzing evidence of an attack and its perpetrators and other areas 
 * Network logs
 
 ## Incident response
-Usually refering to a data breacj or a cyber attack, this can also be applied to intrusion attempts, policy violations, defacing, etc. Incident response specifies the methodology that should be followed to handle such a case in order to reduce damage and rcover in the shortest time possible
+Usually referring to a data breach or a cyber attack, this can also be applied to intrusion attempts, policy violations, defacing, etc. Incident response specifies the methodology that should be followed to handle such a case in order to reduce damage and recover in the shortest time possible
 
 ![[Pasted image 20231014020537.png]]
 

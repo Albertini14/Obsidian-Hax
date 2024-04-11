@@ -31,13 +31,13 @@ curl URL -v
 
 Google dorking utilises google's advanced search engine features to pick out custom content. you can combine multiple filters
 
-|Filter|Example|Description|
-|------|-------|-----------|
-|site|site:tryhackme.com|returns results only from the specified website address|
-|inurl|inurl:admin|returns results that have the specified word in the URL|
-|filetype|filetype:pdf|returns results which are a particular file extension|
-|intitle|intitle:admin|returns results that contain the specified word in the title|
-
+| Filter     | Example            | Description                                                                             |
+| ---------- | ------------------ | --------------------------------------------------------------------------------------- |
+| `exact`    | "search phrase"    | Find results with exact search phrase                                                   |
+| `site`     | site:tryhackme.com | returns results only from the specified website address (can use -site to exclude from) |
+| `inurl`    | inurl:admin        | returns results that have the specified word in the URL                                 |
+| `filetype` | filetype:pdf       | returns results which are a particular file extension                                   |
+| `intitle`  | intitle:admin      | returns results that contain the specified word in the title                            |
 ### Wappalyzer
 Is an online tool and browser extension that helps identify what technologies a website uses, such as frameworks, content management systems (CMS), payment processors and much more
 [Wappalyzer](https://www.wappalyzer.com/)
@@ -66,7 +66,3 @@ We can use many different discovery tools, like
 [[ffuf]]
 [[dirb]]
 [[GoBuster]]
-
-For thm wordlist path
-
-	/usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt

@@ -299,6 +299,9 @@ wes.py sysinfo.txt
 ## Metasploit
 The holy fucking grail
 If we already have a Meterpreter shell on the target system we can use the `multi/recon/local_exploit_suggester` module to list vulnerabilities that may affect the target system and allow us to elevate privileges on the target system.
+## PowerUp
+"_PowerUp aims to be a clearinghouse of common Windows privilege escalation_ _vectors that rely on misconfigurations._"
+We can download the script for powershell [here](https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1)
 
 # Referrals
 - [PayloadsAllTheThings - Windows Privilege Escalation](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md)

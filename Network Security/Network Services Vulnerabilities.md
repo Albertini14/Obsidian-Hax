@@ -67,6 +67,11 @@ The FTP server may support either Active or Passive connections or both.
 ## Enumerating
 Port scanning, and from here we can start by logging in to a FTP server with the FTP client `ftp`
 Also, Some vulnerable versions of `in.ftpd` and some other FTP server variants return different responses to the `cwd` command for home directories which exist and those that don't. This can be exploited because we can issue `cwd` commands before authentication, and if there's a home directory. While this [bug](https://www.exploit-db.com/exploits/20745) is mainly found within legacy systems, it's still worth knowing. 
+We can also connect through [[Netcat]] by specifying the port
+```
+nc IP 21
+```
+
 ## Exploiting
 All the data in both the command and data channels is unencrypted, so it can be intercepted and read. Trying to use a MITM tactic could work to snatch credentials or other sensitive data. But it also allows us to bruteforce passwords.
 [[Hydra]] in this case may be our go to buddy
