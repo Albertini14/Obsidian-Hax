@@ -13,20 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teams/Red Team/Red Recon.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f656034bfbb90a1a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Methodology/Content Discovery.md",
+                "file": "Teams/Red Team/C2.md",
                 "mode": "source",
                 "source": false
               }
@@ -61,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "cut -",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -99,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teams/Red Team/Red Recon.md",
+                "file": "Teams/Red Team/C2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teams/Red Team/Red Recon.md",
+                "file": "Teams/Red Team/C2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teams/Red Team/Red Recon.md"
+                "file": "Teams/Red Team/C2.md"
               }
             }
           }
@@ -163,13 +150,24 @@
   },
   "active": "a019cc16f6afbded",
   "lastOpenFiles": [
-    "Pasted image 20240411051838.png",
-    "Recon-ng.md",
-    "Teams/Red Team/Red Recon.md",
-    "Methodology/Content Discovery.md",
+    "Network Security/Network Services Vulnerabilities.md",
+    "Tools/Telnet.md",
     "Network Security/Reconnaissance.md",
+    "Network Security/Protocols And Servers.md",
+    "Network Security/Protocol Defense.md",
+    "Network Security/Protocol Attack.md",
+    "Methodology/Shells.md",
+    "SQLi.md",
+    "Tools/Info Gathering/OSINT/Recon-ng.md",
+    "Tools/Openssl.md",
+    "Null Byte.md",
+    "Enum4Linux.md",
+    "Images/Pasted image 20240411051838.png",
+    "Teams/Red Team/Red Recon.md",
+    "Teams/Red Team/Payload Delivery.md",
     "Methodology/Privilege Escalation - Linux.md",
     "Teams/Red Team/C2.md",
+    "Methodology/Content Discovery.md",
     "Tools/Info Gathering/Enumeration/Nikto.md",
     "Tools/Info Gathering/Enumeration/Sublist3r.md",
     "Tools/Info Gathering/Enumeration/WPScan.md",
@@ -179,22 +177,12 @@
     "Tools/C2 Frameworks/Metasploit.md",
     "Tools/Brute Forcing/Hashcat.md",
     "Tools/Info Gathering/Enumeration/dnsrecon.md",
-    "Tools/Ettercap.md",
-    "Tools/Telnet.md",
-    "Tools/wfuzz.md",
-    "Tools/SSH.md",
-    "Tools/Info Gathering/OSINT/PdfInfo.md",
     "Tools/Info Gathering/OSINT",
-    "Tools/dirb.md",
     "Images/Pasted image 20240302000639.png",
     "Tools/Brute Forcing",
     "Tools/C2 Frameworks",
     "Images/Pasted image 20240302000624.png",
     "Pasted image 20240408044555.png",
-    "Teams/Blue team/Main areas.md",
-    "Teams/Blue team/Tools.md",
-    "Tools/Info Gathering/OSINT/ExifTool.md",
-    "Methodology/Privilege Escalation - Windows.md",
     "Images/Pasted image 20231023154125.png",
     "Images/Pasted image 20231023154000.png",
     "Images/Pasted image 20231023152952.png",
@@ -204,7 +192,6 @@
     "Tools/Info Gathering/Enumeration/Untitled",
     "Tools/Info Gathering/Enumeration",
     "Tools/Info Gathering",
-    "Pasted image 20240205225312.png",
     "NoteBook",
     "Untitled.canvas",
     "Tools/Firewall",
