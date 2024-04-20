@@ -11,6 +11,7 @@
 | SSH      | 22       | Remote Access  | Encrypted            |
 | NFS      | 111/2049 | File Transfer  | Cleartext            |
 | MySQL    | 3306     | Database       | Cleartext by default |
+| RDP      | 3389     | Remote Desktop | Encrypted            |
 
 
 # SMB
@@ -138,6 +139,11 @@ mysql -h IP -u username -p
 We can use [[Metasploit]] for enumeration as well with things like `mysql_version` or `mysql_enum`. But specially `mysql_sql` which allows us (provided with credentials) to run SQL commands like `show databases` among others. 
 Some Metasploit-free alternatives can be [[Nmap]] `mysql-enum` script. Or running the commands inside the `mysql` server
 
-
+# RDP
 ## Exploiting
-
+Let's say that we found an exposed RDP service on it's default port. We can use a tool such as [RDPassSpray](https://github.com/xFreed0m/RDPassSpray) to [[Password Attacks#Password Spraying|password spray]] against RDP. 
+```shell
+python3 RDPassSpray.py -U usernames.txt -p Password2024! -t 10.10.10.10:3389
+```
+This follows the same guides like hydra, where an uppercase option refers to multiple names/passwords and a lowercase a single one.
+We can also specify a domain name using `-d` if we are in an Active Directory environment.

@@ -64,8 +64,8 @@ The first line:
 
 We then use a regex style pattern match to define where in the word will be modified
 
-`Az`- Takes the word and appends it with the characters we define
-`A0`- Takes the word and prepends it with the characters we define
+`Az` or `$` - Takes the word and appends it with the characters we define
+`A0` or `^` - Takes the word and prepends it with the characters we define
 `c`- Capitalises the character positionally
 
 These can be used in combination to define where and what in the word we want to modify
@@ -82,7 +82,7 @@ Lastly, we then need to define what characters should be appended, prepended or 
 Adding all of this, in order to generate a wordlist from the rules that would match the example password 'Johnny1!' (assuming johnny was in our wordlist) our entry would look like this
 ```sh
 [List.Rules:BasicPass]
-cAz"[0-9][!@#$%^&*]
+cAz"[0-9][!@#$%^&*]"
 ```
 Making it so
 - Capitalize the first letter `c`
