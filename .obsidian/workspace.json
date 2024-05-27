@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Empire.md",
+                "file": "Teams/Red Team/Post-Exploitation.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -87,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Empire.md",
+                "file": "Teams/Red Team/Post-Exploitation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Empire.md",
+                "file": "Teams/Red Team/Post-Exploitation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Empire.md"
+                "file": "Teams/Red Team/Post-Exploitation.md"
               }
             }
           }
@@ -151,8 +151,26 @@
   },
   "active": "a019cc16f6afbded",
   "lastOpenFiles": [
+    "Tools/C2 Frameworks/Metasploit.md",
+    "Teams/Red Team/Post-Exploitation.md",
+    "Tools/Post exploitation/Mimikatz.md",
+    "Tools/Post exploitation/Bloodhound.md",
+    "Tools/Post exploitation/Chisel.md",
+    "Methodology/Exploitation.md",
+    "Theory/OWASP - Top 10.md",
+    "Tools/Post exploitation/Powerview.md",
     "Teams/Red Team/C2.md",
     "Empire.md",
+    "Methodology/Privilege Escalation - Linux.md",
+    "Tools/Post exploitation",
+    "Teams/Red Team/Payload Delivery.md",
+    "~$oyecto final.doc",
+    "Proyecto final.doc",
+    "Methodology/Content Discovery.md",
+    "Methodology/Authentication Bypass.md",
+    "Tools/Info Gathering/Enumeration/ffuf.md",
+    "Tools/Info Gathering/Enumeration/GoBuster.md",
+    "Tools/Info Gathering/Enumeration/Nmap.md",
     "Teams/Red Team/Social Engineering.md",
     "GoPhish.md",
     "Teams/Red Team/Password Attacks.md",
@@ -162,21 +180,6 @@
     "Teams/Red Team/Network Services Vulnerabilities.md",
     "Network Security/Reconnaissance.md",
     "Network Security/Protocols And Servers.md",
-    "Tools/SSH.md",
-    "Tools/Openssl.md",
-    "Tools/Brute Forcing/Hashcat.md",
-    "Tools/Wordlist gen/CeWL.md",
-    "Tools/Wordlist gen/Crunch.md",
-    "Teams/Red Team/Payload Delivery.md",
-    "Tools/C2 Frameworks/Armitage.md",
-    "Tools/Telnet.md",
-    "Network Security/Protocol Defense.md",
-    "Network Security/Protocol Attack.md",
-    "Methodology/Shells.md",
-    "SQLi.md",
-    "Tools/Info Gathering/OSINT/Recon-ng.md",
-    "Null Byte.md",
-    "Enum4Linux.md",
     "Images/Pasted image 20240411051838.png",
     "Tools/Info Gathering/OSINT",
     "Images/Pasted image 20240302000639.png",
@@ -194,9 +197,6 @@
     "Tools/Info Gathering/Enumeration",
     "Tools/Info Gathering",
     "NoteBook",
-    "Untitled.canvas",
-    "Tools/Firewall",
-    "Tools/Privilege Escalation",
-    "Tools/Forensics/Untitled"
+    "Untitled.canvas"
   ]
 }
