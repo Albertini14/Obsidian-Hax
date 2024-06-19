@@ -1,22 +1,26 @@
 # Pasive Reconnaissance
-## Whois
+## whois
 A command for linux that can be used to retrieve information about a domain, including the registrar, registrant, creation and expiration date of the domain, as well as information about certain people like the admin, tech team, etc.
+```shell
+whois redteam.com
+```
 
 ## nslookup/dig
-Both commands to gather information about the IP adresses of a domain server, we can query from different DNS servers like 1.1.1.1 1.0.0.1 8.8.8.8 8.8.4.4 and many more, likewise we can use different types in order to get specific results from our query.
+Both commands used to gather information about the IP addresses of a domain server, we can also query from different DNS servers like 1.1.1.1 1.0.0.1 8.8.8.8 8.8.4.4 and many more, likewise we can use different types in order to get specific results from our query.
 
-|Query type|Result                                     |
-|-------------------|-|
-|A|IPv4 Addresses|
-|AAAA|IPv6 Addresses|
-|CNAME|Canonical Name|
-|MX|Mail Servers|
-|SOA|Start of Authority|
-|TXT|TXT Records|
+| Query type | Result             |
+| ---------- | ------------------ |
+| A          | IPv4 Addresses     |
+| AAAA       | IPv6 Addresses     |
+| CNAME      | Canonical Name     |
+| MX         | Mail Servers       |
+| SOA        | Start of Authority |
+| TXT        | TXT Records        |
 
 ```bash
-nslookup -type=TYPE DOMAIN SERVER
-dig @SERVER DOMAIN TYPE
+nslookup -type=TYPE cafe.redteam.com 1.1.1.1
+
+dig cafe.redteam.com TYPE @8.8.8.8
 ```
 
 ## DNSDumpster
@@ -29,6 +33,9 @@ dig @SERVER DOMAIN TYPE
 # Active Reconnaissance
 ## Traceroute
 Is a command that traces the route taken by the packets from our system to another host. It's purpose is to find the IP addresses of the routers or hops that a packet traverses as it goes from our system to the host.
+```shell
+traceroute redteam.com
+```
 
 ## [[Telnet]]
 Is a command that uses the Teletype Network protocol for remote administration, it sends all data, including usernames and passwords, in cleartext. Making it easy for anyone who has access to the communication channel to steal login credentials. It's secure alternative is SSH.

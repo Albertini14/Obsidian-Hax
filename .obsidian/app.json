@@ -1,3 +1,6 @@
 {
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "rightToLeft": false,
+  "showLineNumber": false,
+  "autoPairBrackets": true
 }

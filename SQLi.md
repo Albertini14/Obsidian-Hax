@@ -1,7 +1,7 @@
 ## xp_cmdshell
-**xp_cmdshell** is a system-extended stored procedure in Microsoft SQL Server that enables the execution of operating system commands and programs from within SQL Server. It provides a mechanism for SQL Server to interact directly with the host operating system's command shell. 
+`xp_cmdshell` is a system-extended stored procedure in Microsoft SQL Server that enables the execution of operating system commands and programs from within SQL Server. It provides a mechanism for SQL Server to interact directly with the host operating system's command shell. 
 
-Although old and mostly disabled by default, it is possible to manually enable **xp_cmdshell** in SQL Server through `EXECUTE` (**EXEC**) queries. Still, it requires the database user to be a member of the **sysadmin** fixed server role or have the `ALTER SETTINGS` server-level permission to execute this command.
+Although old and mostly disabled by default, it is possible to manually enable `xp_cmdshell` in SQL Server through `EXECUTE` (**EXEC**) queries. Still, it requires the database user to be a member of the **sysadmin** fixed server role or have the `ALTER SETTINGS` server-level permission to execute this command.
 
 ```sql
 EXEC sp_configure 'show advanced options', 1;

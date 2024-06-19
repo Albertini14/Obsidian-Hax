@@ -1,4 +1,4 @@
-ssh USER@IP - Secure SHell, network protocol to connect with other machines
+ssh USER@IP - Secure Shell, network protocol to connect with other machines
 su USERNAME - change user while logged as another / -l USERNAME logs in as user inheriting more properties
 whoami - Tells you who you are
 ls - lists files in current directory / -a shows all files, including hidden ones / -l shows information about who can read, write and execute the file
@@ -37,7 +37,7 @@ scp FILE USER@IP:PATH | scp USER@IP:PATH FILE
 	secure copy  is a way to copy files throught the SSH protocol, similar to the cp command this creates a copy of the first file to the specified path, taking the user we wished to be logged in as to the specified ip and path from which to tak  e or put the file
 python3 -m http.server - this command turns the computer into a quick server from which other computers can then, by using curl and wget download your files, this http server will serve the files in the directory that you run the command
 
-ps - shpws the running processes / ps aux - show the processes run by other users
+ps - shows the running processes / ps aux - show the processes run by other users
 top - shows the processes in a real time manner refreshing every 10 seconds
 kill PID - kills a process with its respective process ID
 	SIGTERM - kills the process but allows it to do some cleanup beforehand

@@ -3,6 +3,6 @@
     "todoist"
   ],
   "showLangName": false,
-  "showLineNumber": false,
+  "showLineNumber": true,
   "useContextMenu": true
 }

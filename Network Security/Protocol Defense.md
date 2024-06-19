@@ -3,13 +3,13 @@ The Transport Layer Security is a standard solution to protect both the confiden
 TLS and SSL (Secure Sockets Layer, the precursor of TLS) work by encrypting adding an encryption to the protocols via the presentation layer, consequently making all the data passed through the transport and network layer encrypted.
 An existing cleartext protocol can be upgraded to use Encryption via SSL/TLS like:
 
-|Protocol|Default Port|Secured Protocol|Default Port with TLS|
-|---|---|---|---|
-|HTTP|80|HTTPS|443|
-|FTP|21|FTPS|990|
-|SMTP|25|SMTPS|465|
-|POP3|110|POP3S|995|
-|IMAP|143|IMAPS|993|
+| Protocol | Default Port | Secured Protocol | Default Port with TLS |
+| -------- | ------------ | ---------------- | --------------------- |
+| HTTP     | 80           | HTTPS            | 443                   |
+| FTP      | 21           | FTPS             | 990                   |
+| SMTP     | 25           | SMTPS            | 465                   |
+| POP3     | 110          | POP3S            | 995                   |
+| IMAP     | 143          | IMAPS            | 993                   |
 
 This method creates a Key for both the server and the client that will be securely generated so that any third party monitoring the channel wouldn't be able to discover it and thus decrypt the data.
 
