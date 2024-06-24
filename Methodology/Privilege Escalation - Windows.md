@@ -241,9 +241,9 @@ Note that when opening the cmd we may only be able to run built-in commands, but
 
 ## SeImpersonate / SeAssignPrimaryToken
 These privileges allow a process to impersonate other users and act on their behalf. Impersonation usually consists of being able to spawn a process or thread under the security context of another user.
-As attackers, if we manage to take control of a process with SeImpersonate or SeAssignPrimaryToken privileges, we can impersonate any user connecting and authenticating to that process.
+As attackers, if we manage to take control of a process with `SeImpersonate` or `SeAssignPrimaryToken` privileges, we can impersonate any user connecting and authenticating to that process.
 
-In Windows systems, we will find that the LOCAL SERVICE and NETWORK SERVICE ACCOUNTS already have such privileges. Since these accounts are used to spawn services using restricted accounts, it makes sense to allow them to impersonate connecting users if the service needs. **Internet Information Services** (IIS) will also create a similar default account called "iis apppool\\defaultapppool" for web applications.
+In Windows systems, we will find that the LOCAL SERVICE and NETWORK SERVICE ACCOUNTS already have such privileges. Since these accounts are used to spawn services using restricted accounts, it makes sense to allow them to impersonate connecting users if the service needs. **Internet Information Services** (IIS) will also create a similar default account called `iis apppool\defaultapppool` for web applications.
 
 To elevate privileges using such accounts, we need the following: 
 1. To spawn a process so that users can connect and authenticate to it for impersonation to occur. 

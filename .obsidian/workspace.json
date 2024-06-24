@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teams/Red Team/Post-Exploitation.md",
+                "file": "Teams/Red Team/Persistence.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "layer",
+                "query": "utilman",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -66,7 +66,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -87,7 +88,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teams/Red Team/Post-Exploitation.md",
+                "file": "Teams/Red Team/Persistence.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +105,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teams/Red Team/Post-Exploitation.md",
+                "file": "Teams/Red Team/Persistence.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teams/Red Team/Post-Exploitation.md"
+                "file": "Teams/Red Team/Persistence.md"
               }
             }
           }
@@ -151,34 +152,34 @@
   },
   "active": "a019cc16f6afbded",
   "lastOpenFiles": [
-    "Teams/Red Team/Host Evasion.md",
+    "Methodology/Privilege Escalation - Windows.md",
+    "Teams/Red Team/Persistence.md",
+    "Teams/Red Team/Payload Delivery.md",
+    "Tools/C2 Frameworks/Metasploit.md",
     "Teams/Red Team/Post-Exploitation.md",
+    "Tools/Privilege Escalation/Remmina.md",
+    "psexec.md",
+    "Teams/Red Team/Post Enum - Windows.md",
+    "Methodology/Shells.md",
+    "Tools/Privilege Escalation/Evil-WinRM.md",
+    "Tools/Privilege Escalation/Rubeus.md",
+    "Teams/Red Team/Host Evasion.md",
+    "Teams/Red Team/C2.md",
+    "Process Hacker.md",
+    "Teams/Red Team/Post Enum - Linux.md",
+    "Tools/Privilege Escalation/Unshadow.md",
+    "Teams/Red Team/Active Directory.md",
     "Teams/Red Team/Network Services Vulnerabilities.md",
+    "Network Security/Reconnaissance.md",
+    "Network Security/Protocols And Servers.md",
+    "Network Security/Protocol Defense.md",
+    "Network Security/Protocol Attack.md",
+    "Teams/Red Team/Red Recon.md",
     "Teams/Red Team/Network Evasion.md",
     "Theory/Tools/Tools.md",
     "Teams/Red Team/Social Engineering.md",
-    "Null Byte.md",
-    "Tools/C2 Frameworks/Empire.md",
     "Tools/Info Gathering/Social Engineering",
-    "Theory/Attacks/Attacks.md",
-    "Teams/Red Team/C2.md",
-    "SQLi.md",
-    "Theory/OWASP - Top 10.md",
-    "Theory/CISSP/Domains.md",
-    "Theory/Web/Http.md",
-    "Network Security/Protocol Defense.md",
-    "Teams/Red Team/Active Directory.md",
-    "Methodology/Authentication Bypass.md",
-    "Methodology/Shells.md",
-    "Methodology/Privilege Escalation - Linux.md",
-    "Methodology/Subdomain Enumeration.md",
-    "Methodology/Privilege Escalation - Windows.md",
-    "Tools/Post exploitation/Bloodhound.md",
     "Teams/Red Team/Untitled",
-    "Tools/C2 Frameworks/Metasploit.md",
-    "Tools/Post exploitation/Mimikatz.md",
-    "Tools/Post exploitation/Chisel.md",
-    "Methodology/Exploitation.md",
     "Tools/Post exploitation",
     "~$oyecto final.doc",
     "Proyecto final.doc",

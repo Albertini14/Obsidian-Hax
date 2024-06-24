@@ -21,7 +21,7 @@ We can also use VBScript to run executable files for things like PoC.
 Set shell = WScript.CreateObject("Wscript.Shell")
 shell.Run("C:\Windows\System32\calc.exe"),1,True 
 ```
-Here, we first create an object of the `WScript` library to call the execution payload, which serves like a cmd. Then utilize the `Run` method to execute the payload, which in this case is the `calc.exe`, or run any other command that we want. And also set the Window Style to `1` which means that it would be visible (We can instead use a `0` to hide the window and run the program in the background) and finally set the Wait for Completion value to `True` To wait until the command completes to continue execution Again to run it `wscript PoC.vbs` in the cmd. We can also use `cscript`.
+Here, we first create an object of the `WScript` library to call the execution payload, which serves like a cmd. Then utilize the `Run` method to execute the payload, which in this case is the `calc.exe`, or run any other command that we want. And also set the Window Style to `1` which means that it would be visible (We can instead use a `0` to hide the window and run the program in the background) and finally set the Wait for Completion value to `True` To wait until the command completes to continue execution. Again to run it `wscript PoC.vbs` in the cmd. We can also use `cscript`.
 
 --- 
 If the `.vbs` are blacklisted, then we rename the file to `.txt` and run it with `wscript` like this
