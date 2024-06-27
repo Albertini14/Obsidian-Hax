@@ -19,8 +19,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "4babce45a11ccea3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Teams/Red Team/Data Exfiltration.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -49,7 +62,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "utilman",
+                "query": "icmp",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -66,13 +79,11 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 234.5,
-    "collapsed": true
+    "width": 234.5
   },
   "right": {
     "id": "ef7f711f59a50c5b",
@@ -88,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teams/Red Team/Persistence.md",
+                "file": "Teams/Red Team/Data Exfiltration.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teams/Red Team/Persistence.md",
+                "file": "Teams/Red Team/Data Exfiltration.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teams/Red Team/Persistence.md"
+                "file": "Teams/Red Team/Data Exfiltration.md"
               }
             }
           }
@@ -150,15 +161,31 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "a019cc16f6afbded",
+  "active": "022ea4c67299ebb0",
   "lastOpenFiles": [
-    "Methodology/Privilege Escalation - Windows.md",
+    "Images/Pasted image 20240626232347.png",
+    "Images/Pasted image 20240626210339.png",
+    "Images/Pasted image 20240626204237.png",
+    "Images/Pasted image 20240626191900.png",
+    "Images/Pasted image 20240626162248.png",
+    "Images/Pasted image 20240626153522.png",
+    "Images/Pasted image 20240626153017.png",
+    "Teams/Red Team/Data Exfiltration.md",
+    "Pasted image 20240626153442.png",
+    "Images/Pasted image 20240626153352.png",
+    "Tools/Info Gathering/Enumeration/Nmap.md",
+    "Teams/Red Team/Network Services Vulnerabilities.md",
     "Teams/Red Team/Persistence.md",
+    "Images/Pasted image 20240624195841.png",
+    "SQLi.md",
+    "Null Byte.md",
+    "psexec.md",
+    "Images/Pasted image 20240624155813.png",
+    "Teams/Red Team/Post-Exploitation.md",
+    "Methodology/Privilege Escalation - Windows.md",
     "Teams/Red Team/Payload Delivery.md",
     "Tools/C2 Frameworks/Metasploit.md",
-    "Teams/Red Team/Post-Exploitation.md",
     "Tools/Privilege Escalation/Remmina.md",
-    "psexec.md",
     "Teams/Red Team/Post Enum - Windows.md",
     "Methodology/Shells.md",
     "Tools/Privilege Escalation/Evil-WinRM.md",
@@ -169,33 +196,17 @@
     "Teams/Red Team/Post Enum - Linux.md",
     "Tools/Privilege Escalation/Unshadow.md",
     "Teams/Red Team/Active Directory.md",
-    "Teams/Red Team/Network Services Vulnerabilities.md",
     "Network Security/Reconnaissance.md",
     "Network Security/Protocols And Servers.md",
     "Network Security/Protocol Defense.md",
-    "Network Security/Protocol Attack.md",
-    "Teams/Red Team/Red Recon.md",
-    "Teams/Red Team/Network Evasion.md",
-    "Theory/Tools/Tools.md",
-    "Teams/Red Team/Social Engineering.md",
     "Tools/Info Gathering/Social Engineering",
     "Teams/Red Team/Untitled",
     "Tools/Post exploitation",
     "~$oyecto final.doc",
     "Proyecto final.doc",
-    "Images/Pasted image 20240411051838.png",
     "Tools/Info Gathering/OSINT",
-    "Images/Pasted image 20240302000639.png",
     "Tools/Brute Forcing",
     "Tools/C2 Frameworks",
-    "Images/Pasted image 20240302000624.png",
-    "Pasted image 20240408044555.png",
-    "Images/Pasted image 20231023154125.png",
-    "Images/Pasted image 20231023154000.png",
-    "Images/Pasted image 20231023152952.png",
-    "Images/Pasted image 20231019140816.png",
-    "Images/Pasted image 20231017215332.png",
-    "Images/Pasted image 20231017215239.png",
     "Tools/Info Gathering/Enumeration/Untitled",
     "Tools/Info Gathering/Enumeration",
     "Untitled.canvas"
