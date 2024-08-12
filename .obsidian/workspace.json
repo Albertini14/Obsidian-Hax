@@ -8,32 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a019cc16f6afbded",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Teams/Red Team/Persistence.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "4babce45a11ccea3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teams/Red Team/Data Exfiltration.md",
+                "file": "Theory/Windows Internals.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -99,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teams/Red Team/Data Exfiltration.md",
+                "file": "Theory/Windows Internals.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teams/Red Team/Data Exfiltration.md",
+                "file": "Theory/Windows Internals.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teams/Red Team/Data Exfiltration.md"
+                "file": "Theory/Windows Internals.md"
               }
             }
           }
@@ -161,8 +147,25 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "022ea4c67299ebb0",
+  "active": "4babce45a11ccea3",
   "lastOpenFiles": [
+    "Pasted image 20240812044240.png",
+    "Teams/Red Team/Host Evasion.md",
+    "Theory/Windows Internals.md",
+    "Teams/Red Team/Post Enum - Linux.md",
+    "Pasted image 20240812034927.png",
+    "Pasted image 20240812034329.png",
+    "Teams/Red Team/Social Engineering.md",
+    "Teams/Red Team/Data Exfiltration.md",
+    "Teams/Red Team/Persistence.md",
+    "Teams/Red Team/Red Recon.md",
+    "Theory/OWASP - Top 10.md",
+    "Theory/Upload Vulnerabilities.md",
+    "Theory/Attacks/Alternate methods/AML/AML.md",
+    "Theory/Attacks/Attacks.md",
+    "Teams/Blue team/Tools.md",
+    "Methodology/Privilege Escalation - Linux.md",
+    "Tools/Info Gathering/Enumeration/Nmap.md",
     "Images/Pasted image 20240626232347.png",
     "Images/Pasted image 20240626210339.png",
     "Images/Pasted image 20240626204237.png",
@@ -170,17 +173,11 @@
     "Images/Pasted image 20240626162248.png",
     "Images/Pasted image 20240626153522.png",
     "Images/Pasted image 20240626153017.png",
-    "Teams/Red Team/Data Exfiltration.md",
     "Pasted image 20240626153442.png",
-    "Images/Pasted image 20240626153352.png",
-    "Tools/Info Gathering/Enumeration/Nmap.md",
     "Teams/Red Team/Network Services Vulnerabilities.md",
-    "Teams/Red Team/Persistence.md",
-    "Images/Pasted image 20240624195841.png",
     "SQLi.md",
     "Null Byte.md",
     "psexec.md",
-    "Images/Pasted image 20240624155813.png",
     "Teams/Red Team/Post-Exploitation.md",
     "Methodology/Privilege Escalation - Windows.md",
     "Teams/Red Team/Payload Delivery.md",
@@ -188,17 +185,6 @@
     "Tools/Privilege Escalation/Remmina.md",
     "Teams/Red Team/Post Enum - Windows.md",
     "Methodology/Shells.md",
-    "Tools/Privilege Escalation/Evil-WinRM.md",
-    "Tools/Privilege Escalation/Rubeus.md",
-    "Teams/Red Team/Host Evasion.md",
-    "Teams/Red Team/C2.md",
-    "Process Hacker.md",
-    "Teams/Red Team/Post Enum - Linux.md",
-    "Tools/Privilege Escalation/Unshadow.md",
-    "Teams/Red Team/Active Directory.md",
-    "Network Security/Reconnaissance.md",
-    "Network Security/Protocols And Servers.md",
-    "Network Security/Protocol Defense.md",
     "Tools/Info Gathering/Social Engineering",
     "Teams/Red Team/Untitled",
     "Tools/Post exploitation",
