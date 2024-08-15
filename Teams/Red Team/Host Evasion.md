@@ -1,12 +1,8 @@
 # Host Security Solutions
 These are a set of software applications used to monitor and detect abnormal and malicious activities within the host.
-## Antivirus software
+## [[Antivirus|Antivirus Software]]
 Antivirus (AV) software is mainly used to monitor, detect and prevent malicious software from being executed within the host. Most antivirus software applications use well-known features, including Background scanning, Full system scans, Virus definitions. 
 In the Background scanning, the AV software works in real-time and scans all open and used files in the background. The full system scan is essential when we first install the antivirus. And the Virus definitions, where AV software replies to the pre-defined virus. That's why AV software needs to update from time to time. 
-There are various detection techniques that the antivirus uses, including:
-- **Signature-Based detection**: When an infected file is analyzed by the AV and it confirms it as malicious, then it's signature is registered in the database. The AV then compares a scanned file with a database of known signatures for possible attacks or malware, and if they match it is deemed to be a threat 
-- **Heuristic-Based detection**: Uses machine learning to decide whether we have the malicious fiel or not. It scans and statically analyses in real-time in order to find suspicious properties in the application's code or check whether it uses uncommon Windows or system APIs. It may or may not rely on signature-based detection, depending on the implementation of the AV.
-- **Behavior-Based detection**: This relies on monitoring and examining the execution of the applications to find abnormal behaviors and uncommon activities, such as creating/updating values in registry keys, killing/creating processes, etc.
 
 It is essential to know whether antivirus exists or not, we can enumerate AV using Windows built in tools such as `wmic`
 ```
