@@ -201,7 +201,10 @@ Now that the headers have defined the format and function of the file, the secti
 | ----------------- | ---------------------------------------------------- |
 | .text             | Contains executable code and entry point             |
 | .data             | Contains initialized data (strings, variables, etc.) |
-| .rdata or .idata  | Contains imports (Windows API) and DLLs.             |
+| .bss              | Contains uninitialized data                          |
+| .rdata            | Contains read only data                              |
+| .idata            | Contains imported objects                            |
+| .edata            | Contains exportable objects                          |
 | .reloc            | Contains relocation information                      |
 | .rsrc             | Contains application resources (images, etc.)        |
 | .debug            | Contains debug information                           |
