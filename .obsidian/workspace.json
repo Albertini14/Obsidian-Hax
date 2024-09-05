@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teams/Red Team/Evasion/AV Evasion Shellcode.md",
+                "file": "Teams/Red Team/Evasion/Signature Evasion.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "p/inv",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -87,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teams/Red Team/Evasion/AV Evasion Shellcode.md",
+                "file": "Teams/Red Team/Evasion/Signature Evasion.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teams/Red Team/Evasion/AV Evasion Shellcode.md",
+                "file": "Teams/Red Team/Evasion/Signature Evasion.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teams/Red Team/Evasion/AV Evasion Shellcode.md"
+                "file": "Teams/Red Team/Evasion/Signature Evasion.md"
               }
             }
           }
@@ -151,6 +151,15 @@
   },
   "active": "4babce45a11ccea3",
   "lastOpenFiles": [
+    "Teams/Red Team/Evasion/Obfuscation.md",
+    "Teams/Red Team/Evasion/Signature Evasion.md",
+    "Teams/Red Team/Injection types.md",
+    "Teams/Red Team/Evasion/Network Evasion.md",
+    "Teams/Red Team/Evasion/AV Evasion Shellcode.md",
+    "Theory/Antivirus.md",
+    "Teams/Red Team/Evasion/Host Evasion.md",
+    "Pasted image 20240829005532.png",
+    "Pasted image 20240829005135.png",
     "Pasted image 20240821043527.png",
     "Images/Pasted image 20240821041553.png",
     "Images/Pasted image 20240821032357.png",
@@ -158,17 +167,12 @@
     "Images/Pasted image 20240815015006.png",
     "Images/Pasted image 20240814035254.png",
     "Images/Pasted image 20240814031257.png",
-    "Teams/Red Team/Evasion/AV Evasion Shellcode.md",
     "Theory/Windows Internals.md",
     "Theory/Windows API.md",
-    "Teams/Red Team/Injection types.md",
     "Theory/Upload Vulnerabilities.md",
-    "Theory/Antivirus.md",
     "Teams/Red Team/Network Services Vulnerabilities.md",
     "Teams/Red Team/Active Directory.md",
-    "Teams/Red Team/Evasion/Host Evasion.md",
     "Teams/Blue team/Yara.md",
-    "Teams/Red Team/Evasion/Network Evasion.md",
     "Teams/Red Team/Evasion",
     "Teams/Red Team/Post-Exploitation.md",
     "Theory/Attackers.md",
@@ -184,10 +188,6 @@
     "Images/Pasted image 20240812044240.png",
     "SQLi.md",
     "psexec.md",
-    "Process Hacker.md",
-    "Pasted image 20240812034329.png",
-    "Pasted image 20240812034927.png",
-    "Images/Pasted image 20240626232347.png",
     "Tools/Info Gathering/Social Engineering",
     "Tools/Post exploitation",
     "~$oyecto final.doc",
