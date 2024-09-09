@@ -10,7 +10,7 @@ To solve this problem we can use other **FOSS** (Free and Open-Source Software) 
 
 
 ThreatCheck is a fork of DefenderCheck and is arguably the most widely used/reliable of the three. To identify possible signatures, ThreatCheck leverages several anti-virus engines against split compiled binaries and reports where it believes bad bytes are present.
-For our uses we only need to supply a file and optionally an engine, (Although we should use AMSITrigger when dealing with AMSI).
+For our uses we only need to supply a file and optionally an engine, (Although we should use AMSITrigger when dealing with [[Runtime Detection Evasion#AMSI|AMSI]]).
 ```powershell
 ThreatCheck.exe -f virus.exe -e Defender
 ```
@@ -19,7 +19,7 @@ To efficiently use this tool we can identify any bad bytes that are first discov
 ---
 
 
-As covered in [[Runtime Detection Evasion]], AMSI (Anti-Malware Scan Interface) leverages the runtime, making signatures harder to identify and resolve. ThreatCheck also does not support certain file types such as Powershell that AMSITrigger does.
+As covered in [[Runtime Detection Evasion#AMSI|here]], AMSI (Anti-Malware Scan Interface) leverages the runtime, making signatures harder to identify and resolve. ThreatCheck also does not support certain file types such as Powershell that AMSITrigger does.
 AMSITrigger will leverage the AMSI engine and scan functions against a provided PowerShell script and report any specific sections of code it believes need to be alerted on.
 ```powershell
 amsitrigger.exe -i code.ps1 -f 3

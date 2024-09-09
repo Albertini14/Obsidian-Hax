@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teams/Red Team/Evasion/Signature Evasion.md",
+                "file": "Teams/Red Team/Evasion/Evading Logging and Monitoring.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "amsitr",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -70,8 +70,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 333.5099983215332,
-    "collapsed": true
+    "width": 333.5099983215332
   },
   "right": {
     "id": "ef7f711f59a50c5b",
@@ -87,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teams/Red Team/Evasion/Signature Evasion.md",
+                "file": "Teams/Red Team/Red Recon.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teams/Red Team/Evasion/Signature Evasion.md",
+                "file": "Teams/Red Team/Red Recon.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teams/Red Team/Evasion/Signature Evasion.md"
+                "file": "Teams/Red Team/Red Recon.md"
               }
             }
           }
@@ -149,45 +148,45 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "4babce45a11ccea3",
+  "active": "022ea4c67299ebb0",
   "lastOpenFiles": [
-    "Teams/Red Team/Evasion/Obfuscation.md",
+    "Teams/Blue team/Main areas.md",
+    "Teams/Blue team/Tools.md",
+    "Teams/Blue team/Yara.md",
+    "Images/Pasted image 20240908214201.png",
+    "Images/Pasted image 20240908213735.png",
+    "Teams/Red Team/Evasion/Evading Logging and Monitoring.md",
+    "Teams/Red Team/Evasion/Runtime Detection Evasion.md",
+    "Teams/Red Team/Evasion/AV Evasion Shellcode.md",
     "Teams/Red Team/Evasion/Signature Evasion.md",
+    "Pasted image 20240908213706.png",
+    "Pasted image 20240908213559.png",
+    "Teams/Red Team/Payload Delivery.md",
+    "Images/Pasted image 20240821043527.png",
+    "Images/Pasted image 20240906162926.png",
+    "Process Hacker.md",
+    "psexec.md",
+    "Teams/Red Team/Evasion/Bypassing UAC.md",
+    "Images/Pasted image 20240906162522.png",
+    "Images/Pasted image 20240906131026.png",
+    "Images/Pasted image 20240906130301.png",
+    "Images/Pasted image 20240906001646.png",
+    "Teams/Red Team/Evasion/Obfuscation.md",
     "Teams/Red Team/Injection types.md",
     "Teams/Red Team/Evasion/Network Evasion.md",
-    "Teams/Red Team/Evasion/AV Evasion Shellcode.md",
     "Theory/Antivirus.md",
     "Teams/Red Team/Evasion/Host Evasion.md",
-    "Pasted image 20240829005532.png",
-    "Pasted image 20240829005135.png",
-    "Pasted image 20240821043527.png",
-    "Images/Pasted image 20240821041553.png",
-    "Images/Pasted image 20240821032357.png",
-    "Images/Pasted image 20240821032031.png",
-    "Images/Pasted image 20240815015006.png",
-    "Images/Pasted image 20240814035254.png",
-    "Images/Pasted image 20240814031257.png",
     "Theory/Windows Internals.md",
     "Theory/Windows API.md",
     "Theory/Upload Vulnerabilities.md",
     "Teams/Red Team/Network Services Vulnerabilities.md",
     "Teams/Red Team/Active Directory.md",
-    "Teams/Blue team/Yara.md",
     "Teams/Red Team/Evasion",
     "Teams/Red Team/Post-Exploitation.md",
     "Theory/Attackers.md",
     "Teams/Red Team/Post Enum - Linux.md",
     "Teams/Red Team/Post Enum - Windows.md",
     "Teams/Red Team/Red Recon.md",
-    "Teams/Red Team/C2.md",
-    "Teams/Red Team/Password Attacks.md",
-    "Teams/Red Team/Payload Delivery.md",
-    "Teams/Red Team/Persistence.md",
-    "Theory/Tools/Tools.md",
-    "Null Byte.md",
-    "Images/Pasted image 20240812044240.png",
-    "SQLi.md",
-    "psexec.md",
     "Tools/Info Gathering/Social Engineering",
     "Tools/Post exploitation",
     "~$oyecto final.doc",
