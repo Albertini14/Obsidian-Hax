@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "amsitr",
+                "query": "take shape",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teams/Red Team/Red Recon.md",
+                "file": "Teams/Red Team/Evasion/Evading Logging and Monitoring.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teams/Red Team/Red Recon.md",
+                "file": "Teams/Red Team/Evasion/Evading Logging and Monitoring.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teams/Red Team/Red Recon.md"
+                "file": "Teams/Red Team/Evasion/Evading Logging and Monitoring.md"
               }
             }
           }
@@ -148,29 +148,29 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "022ea4c67299ebb0",
+  "active": "4babce45a11ccea3",
   "lastOpenFiles": [
+    "Images/Pasted image 20240912010921.png",
+    "Teams/Red Team/Evasion/Evading Logging and Monitoring.md",
+    "Pasted image 20240912010859.png",
+    "Images/Pasted image 20240912005812.png",
+    "Pasted image 20240912005741.png",
+    "Teams/Red Team/Evasion/Runtime Detection Evasion.md",
+    "Images/Pasted image 20240911012527.png",
+    "Images/Pasted image 20240909212722.png",
     "Teams/Blue team/Main areas.md",
     "Teams/Blue team/Tools.md",
     "Teams/Blue team/Yara.md",
     "Images/Pasted image 20240908214201.png",
     "Images/Pasted image 20240908213735.png",
-    "Teams/Red Team/Evasion/Evading Logging and Monitoring.md",
-    "Teams/Red Team/Evasion/Runtime Detection Evasion.md",
     "Teams/Red Team/Evasion/AV Evasion Shellcode.md",
     "Teams/Red Team/Evasion/Signature Evasion.md",
     "Pasted image 20240908213706.png",
     "Pasted image 20240908213559.png",
     "Teams/Red Team/Payload Delivery.md",
-    "Images/Pasted image 20240821043527.png",
-    "Images/Pasted image 20240906162926.png",
     "Process Hacker.md",
     "psexec.md",
     "Teams/Red Team/Evasion/Bypassing UAC.md",
-    "Images/Pasted image 20240906162522.png",
-    "Images/Pasted image 20240906131026.png",
-    "Images/Pasted image 20240906130301.png",
-    "Images/Pasted image 20240906001646.png",
     "Teams/Red Team/Evasion/Obfuscation.md",
     "Teams/Red Team/Injection types.md",
     "Teams/Red Team/Evasion/Network Evasion.md",
@@ -186,7 +186,6 @@
     "Theory/Attackers.md",
     "Teams/Red Team/Post Enum - Linux.md",
     "Teams/Red Team/Post Enum - Windows.md",
-    "Teams/Red Team/Red Recon.md",
     "Tools/Info Gathering/Social Engineering",
     "Tools/Post exploitation",
     "~$oyecto final.doc",
