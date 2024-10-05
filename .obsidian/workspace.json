@@ -4,18 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "ef189144fb78a0fb",
+        "id": "abeb460682e4f9f3",
         "type": "tabs",
         "children": [
           {
-            "id": "4babce45a11ccea3",
+            "id": "0291fd94b47294ff",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teams/Red Team/Evasion/Network Security Solutions.md",
+                "file": "Teams/Red Team/Evasion/Firewalls.md",
                 "mode": "source",
-                "backlinks": true,
                 "source": false
               }
             }
@@ -49,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "jitt",
+                "query": "\"next gen",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -66,8 +65,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -88,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teams/Red Team/Evasion/Network Security Solutions.md",
+                "file": "Teams/Red Team/Evasion/Firewalls.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teams/Red Team/Evasion/Network Security Solutions.md",
+                "file": "Teams/Red Team/Evasion/Firewalls.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teams/Red Team/Evasion/Network Security Solutions.md"
+                "file": "Teams/Red Team/Evasion/Firewalls.md"
               }
             }
           }
@@ -150,44 +148,44 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "4babce45a11ccea3",
+  "active": "022ea4c67299ebb0",
   "lastOpenFiles": [
-    "Teams/Red Team/C2.md",
+    "Teams/Red Team/Evasion/Host Evasion.md",
     "Teams/Red Team/Evasion/Network Security Solutions.md",
-    "Teams/Red Team/Evasion/Obfuscation.md",
-    "Teams/Red Team/Evasion/AV Evasion Shellcode.md",
-    "Network Security/Protocols And Servers.md",
-    "Tools/Netcat.md",
+    "Teams/Red Team/Evasion/Firewalls.md",
+    "Tools/Post exploitation/Ligolo-ng.md",
+    "Tools/Post exploitation/Chisel.md",
+    "Tools/Privilege Escalation/Whisker.md",
+    "Pasted image 20241002221304.png",
     "Tools/Info Gathering/Enumeration/Nmap.md",
-    "Teams/Red Team/Evasion/Living Off The Land.md",
-    "Teams/Red Team/Payload Delivery.md",
-    "Teams/Red Team/Persistence.md",
-    "Pasted image 20240919230851.png",
-    "Theory/Windows Internals.md",
-    "Teams/Red Team/Injection types.md",
-    "Teams/Red Team/Evasion/Evading Logging and Monitoring.md",
+    "Pasted image 20241002193325.png",
+    "Teams/Red Team/Evasion/Network Evasion.md",
+    "Pasted image 20241002181201.png",
+    "Pasted image 20241002171923.png",
+    "Pasted image 20241002171002.png",
+    "Images/Pasted image 20240919230851.png",
+    "Pasted image 20241002170916.png",
+    "Tools/Bettercap.md",
+    "Tools/Info Gathering/Enumeration/wfuzz.md",
+    "Tools/Info Gathering/Enumeration/dirb.md",
+    "Tools/C2 Frameworks/Empire.md",
+    "Tools/Telnet.md",
+    "Tools/Openssl.md",
+    "Tools/Netcat.md",
+    "Tools/Ettercap.md",
+    "Theory/Tools/Tools.md",
+    "Theory/CISSP/Domains.md",
+    "Methodology/Content Discovery.md",
+    "Network Security/Protocol Attack.md",
+    "Network Security/Protocol Defense.md",
+    "Network Security/Protocols And Servers.md",
+    "Methodology/Subdomain Enumeration.md",
+    "Teams/Blue team/Main areas.md",
+    "Teams/Blue team/Yara.md",
+    "Teams/Blue team/Tools.md",
     "Images/Pasted image 20240912010921.png",
     "Pasted image 20240912010859.png",
     "Images/Pasted image 20240912005812.png",
-    "Pasted image 20240912005741.png",
-    "Teams/Red Team/Evasion/Runtime Detection Evasion.md",
-    "Images/Pasted image 20240911012527.png",
-    "Images/Pasted image 20240909212722.png",
-    "Teams/Blue team/Main areas.md",
-    "Teams/Blue team/Tools.md",
-    "Teams/Blue team/Yara.md",
-    "Images/Pasted image 20240908214201.png",
-    "Images/Pasted image 20240908213735.png",
-    "Teams/Red Team/Evasion/Signature Evasion.md",
-    "Pasted image 20240908213706.png",
-    "Process Hacker.md",
-    "psexec.md",
-    "Teams/Red Team/Evasion/Bypassing UAC.md",
-    "Teams/Red Team/Evasion/Network Evasion.md",
-    "Theory/Antivirus.md",
-    "Teams/Red Team/Evasion/Host Evasion.md",
-    "Theory/Windows API.md",
-    "Theory/Upload Vulnerabilities.md",
     "Teams/Red Team/Evasion",
     "Tools/Info Gathering/Social Engineering",
     "Tools/Post exploitation",
