@@ -1,0 +1,2 @@
+[[Active Directory]] is used for Identity and Access Management, due to this it is a prime target for us. Before we can [[Exploiting Active Directory |exploit]] AD misconfigurations for privilege escalation, [[Lateral Movement and Pivoting |lateral movement]], and goal execution, we first need to gain access. We need to acquire an initial set of valid AD credentials. Due to the number of AD services and features, the attack surface for gaining an initial set of AD credentials is usually significant.
+

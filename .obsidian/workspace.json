@@ -13,8 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teams/Red Team/Evasion/Firewalls.md",
+                "file": "Teams/Red Team/AD/Breaching AD.md",
                 "mode": "source",
+                "backlinks": true,
                 "source": false
               }
             }
@@ -48,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "\"next gen",
+                "query": "phish",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +66,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -86,7 +88,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Teams/Red Team/Evasion/Firewalls.md",
+                "file": "Teams/Red Team/AD/Breaching AD.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +105,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Teams/Red Team/Evasion/Firewalls.md",
+                "file": "Teams/Red Team/AD/Breaching AD.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Teams/Red Team/Evasion/Firewalls.md"
+                "file": "Teams/Red Team/AD/Breaching AD.md"
               }
             }
           }
@@ -148,11 +150,18 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "022ea4c67299ebb0",
+  "active": "0291fd94b47294ff",
   "lastOpenFiles": [
+    "Tools/Info Gathering/Social Engineering/GoPhish.md",
+    "Teams/Red Team/AD/Breaching AD.md",
+    "Teams/Red Team/Evasion/Sandbox Evasion.md",
+    "Teams/Red Team/AD",
+    "Teams/Red Team/Evasion/AV Evasion Shellcode.md",
+    "Pasted image 20241008170937.png",
+    "Theory/OWASP - Top 10.md",
+    "Teams/Red Team/Evasion/Firewalls.md",
     "Teams/Red Team/Evasion/Host Evasion.md",
     "Teams/Red Team/Evasion/Network Security Solutions.md",
-    "Teams/Red Team/Evasion/Firewalls.md",
     "Tools/Post exploitation/Ligolo-ng.md",
     "Tools/Post exploitation/Chisel.md",
     "Tools/Privilege Escalation/Whisker.md",
@@ -178,14 +187,8 @@
     "Methodology/Content Discovery.md",
     "Network Security/Protocol Attack.md",
     "Network Security/Protocol Defense.md",
-    "Network Security/Protocols And Servers.md",
-    "Methodology/Subdomain Enumeration.md",
-    "Teams/Blue team/Main areas.md",
-    "Teams/Blue team/Yara.md",
-    "Teams/Blue team/Tools.md",
     "Images/Pasted image 20240912010921.png",
     "Pasted image 20240912010859.png",
-    "Images/Pasted image 20240912005812.png",
     "Teams/Red Team/Evasion",
     "Tools/Info Gathering/Social Engineering",
     "Tools/Post exploitation",
@@ -195,7 +198,6 @@
     "Tools/Brute Forcing",
     "Tools/C2 Frameworks",
     "Tools/Info Gathering/Enumeration/Untitled",
-    "Tools/Info Gathering/Enumeration",
     "Untitled.canvas"
   ]
 }
