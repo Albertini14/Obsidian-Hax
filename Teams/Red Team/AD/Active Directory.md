@@ -35,3 +35,8 @@ Using the `SearchBase` option, we can specify a DN in the active directory to se
 ```powershell
 Get-ADUser -Filter * -SearchBase "CN=Users,DC=company,DC=com"
 ```
+
+# Authentication
+## Kerberos
+
+## NetNTLM
