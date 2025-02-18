@@ -11,8 +11,24 @@
             "id": "e1d8e79e93c99cb5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Teams/Red Team/AD/Exploiting Active Directory.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Exploiting Active Directory"
             }
           }
         ]
@@ -34,8 +50,11 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
-              }
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -50,7 +69,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -58,7 +79,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -82,6 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Teams/Red Team/AD/Lateral Movement and Pivoting.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,7 +113,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Lateral Movement and Pivoting"
             }
           },
           {
@@ -98,9 +124,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Teams/Red Team/AD/Lateral Movement and Pivoting.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Lateral Movement and Pivoting"
             }
           },
           {
@@ -111,7 +140,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -119,7 +150,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Teams/Red Team/AD/Lateral Movement and Pivoting.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Lateral Movement and Pivoting"
             }
           }
         ]
@@ -142,42 +177,43 @@
   },
   "active": "e1d8e79e93c99cb5",
   "lastOpenFiles": [
+    "Teams/Red Team/AD/Lateral Movement and Pivoting.md",
+    "Teams/Red Team/AD/Exploiting Active Directory.md",
     "Teams/Red Team/AD/Active Directory.md",
+    "Tools/Privilege Escalation/Rubeus.md",
+    "Teams/Red Team/Evasion/AV Evasion Shellcode.md",
+    "Untitled.md",
     "Teams/Red Team/AD/Enumerating AD.md",
+    "Tools/Post exploitation/Bloodhound.md",
+    "Images/Pasted image 20241028231708.png",
+    "Images/Pasted image 20241029115017.png",
+    "Tools/Firewall/PentBox.md",
+    "Teams/Red Team/AD/Breaching AD.md",
+    "Images/Pasted image 20241104112518.png",
+    "Images/Pasted image 20241104112244.png",
+    "Images/Pasted image 20241102150827.png",
+    "Images/Pasted image 20241102150542.png",
+    "Images/Pasted image 20241102145250.png",
+    "Images/Pasted image 20241102142901.png",
+    "Images/Pasted image 20241102142132.png",
+    "Teams/Red Team/Injection types.md",
+    "Images/Pasted image 20241102133835.png",
+    "Methodology/Privilege Escalation - Windows.md",
+    "Tools/Post exploitation/Mimikatz.md",
+    "Theory/Antivirus.md",
+    "Teams/Red Team/Persistence.md",
+    "Tools/Info Gathering/Enumeration/Nmap.md",
+    "Network Security/Protocol Defense.md",
+    "Network Security/Protocols And Servers.md",
+    "Teams/Red Team/Network Services Vulnerabilities.md",
+    "Tools/Privilege Escalation/Evil-WinRM.md",
+    "psexec.md",
     "Teams/Red Team/Evasion/Firewalls.md",
     "Teams/Red Team/Evasion/Sandbox Evasion.md",
-    "Teams/Red Team/AD/Breaching AD.md",
-    "Images/Pasted image 20241002171002.png",
-    "Images/Pasted image 20241002171923.png",
-    "Images/Pasted image 20241015024515.png",
-    "Images/Pasted image 20241015024512.png",
-    "Images/Pasted image 20241011025517.png",
-    "Images/Pasted image 20241011021347.png",
-    "Images/Pasted image 20241011020138.png",
-    "Images/Pasted image 20241010235959.png",
-    "Images/Pasted image 20241010233443.png",
-    "Images/Pasted image 20241010232617.png",
     "Network Security/Protocol Attack.md",
-    "Tools/Post exploitation/Bloodhound.md",
     "Tools/Info Gathering/Enumeration/GoBuster.md",
     "Tools/Info Gathering/Enumeration/dirb.md",
-    "Tools/Info Gathering/Enumeration/dnsrecon.md",
-    "Tools/Info Gathering/Enumeration/ffuf.md",
-    "Tools/Info Gathering/Social Engineering/GoPhish.md",
     "Teams/Red Team/AD",
-    "Teams/Red Team/Evasion/AV Evasion Shellcode.md",
-    "Theory/OWASP - Top 10.md",
-    "Teams/Red Team/Evasion/Host Evasion.md",
-    "Teams/Red Team/Evasion/Network Security Solutions.md",
-    "Tools/Post exploitation/Ligolo-ng.md",
-    "Tools/Post exploitation/Chisel.md",
-    "Tools/Privilege Escalation/Whisker.md",
-    "Tools/Info Gathering/Enumeration/Nmap.md",
-    "Teams/Red Team/Evasion/Network Evasion.md",
-    "Tools/Bettercap.md",
-    "Tools/Info Gathering/Enumeration/wfuzz.md",
-    "Tools/C2 Frameworks/Empire.md",
-    "Tools/Telnet.md",
     "Teams/Red Team/Evasion",
     "Tools/Info Gathering/Social Engineering",
     "Tools/Post exploitation",

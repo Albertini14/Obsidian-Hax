@@ -1,4 +1,4 @@
-Now that we have our first set of [[Breaching AD|valid AD credentials]], we can go ahead an explore the different methods to enumerate [[Active Directory|AD]]. During an engagement, enumeration is pretty entangled with both [[Exploiting Active Directory|exploitation]] and [[Lateral Movement and Pivoting|lateral movement]], as once an attack vector is shown by the enumeration phase, we can exploit it, move, and then have to perform enumeration again from our new position.
+Now that we have our first set of [[Breaching AD|valid AD credentials]], we can go ahead an explore the different methods to enumerate [[Active Directory|AD]]. During an engagement, enumeration is pretty entangled with both [[Exploiting Active Directory|exploitation]] and [[Lateral Movement and Pivoting|Lateral Movement and Pivoting]], as once an attack vector is shown by the enumeration phase, we can exploit it, move, and then have to perform enumeration again from our new position.
 
 # Credential Injection
 Obtaining the credentials is often a step that we can do without compromising a domain-joined machine. However specific enumeration techniques may require a particular setup to work.
@@ -11,7 +11,7 @@ If we ever have AD credentials but nowhere to log in with them, Runas may be our
 In security assessments, we will often have network access and have just discovered AD credentials but no means or privileges to create a new domain-joined machine. So we need the ability to use those credentials on a Windows machine we control.
 If we have the AD credentials in the format of `<username>:<password>`, we can use Runas, a legitimate Windows binary, to inject the credentials into memory. The usual Runas command would something like
 ```cmd
-runas.exe /netonly /user:<domain>/<username> cmd.exe
+runas.exe /netonly /user:<domain>\<username> cmd.exe
 ```
 - `/netonly` - Since we are not domain-joined, we want to load the credentials for network authentication but not authenticate against a domain controller. So commands executed locally on the computer will run in the context of our standard Windows account, but any network connections will occur using the account specified here.
 - `/user` - Here, we provide the details of the domain and the username. It is always a safe bet to use the **Fully Qualified Domain Name** (FQDN) instead of just the NetBIOS name of the domain since this will help with the resolution.
@@ -34,7 +34,7 @@ Set-DnsClientServerAddress -InterfaceIndex $index -ServerAddresses $dnsip
 To resolve or to not resolve, that is the question, so what is the difference between `dir \\za.enterprise.com\SYSVOL` and `dir \\<DC IP>\SYSVOL`?
 
 When providing the hostname, network authentication will first attempt to perform Kerberos authentication. Since Kerberos authentication uses hostnames embedded in the tickets, if we provide the IP instead, we can force the authentication type to be NTLM. 
-It is good to keep this in mind, as these slight differences can help us to remain in out ghost playthrough. Some companies will be monitoring for OverPass- and Pass-The-Hash Attacks. Forcing NTLM authentication is a good trick to have in the book to avoid detection in these cases.
+It is good to keep this in mind, as these slight differences can help us to remain in out ghost playthrough. Some companies will be monitoring for [[Lateral Movement and Pivoting#Overpass-the-hash / Pass-the-Key|OverPass-]] and [[Lateral Movement and Pivoting#Pass-the-Hash|Pass-the-Hash]] Attacks. Forcing NTLM authentication is a good trick to have in the book to avoid detection in these cases.
 
 ## Using Injected Credentials
 Once we have injected our credentials, we can begin. With the `\netonly` option, all network communications will use these injected credential for authentication. This includes all network communications of applications executed from that command prompt window.
