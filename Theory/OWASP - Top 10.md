@@ -1,4 +1,3 @@
-
 # 1. Broken Access Control
 Websites have pages that are protected from regular visitors. For example, only the site's admin user should be able to access a page to manage other users. If a website visitor can access protected pages they are not meant to see then the access controls are broken.
 Broken access control is a vulnerability that lets attackers to bypass authorization, allowing them to view sensitive data or perform tasks they aren't supposed to.
