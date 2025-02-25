@@ -1,0 +1,6 @@
+- PKI - Public Key Infrastructure is a system that manages certificates and public key encryption  
+- AD CS - Active Directory Certificate Services is Microsoft's PKI implementation which usually runs on domain controllers
+- CA - Certificate Authority is a PKI that issues certificates  
+- Certificate Template - a collection of settings and policies that defines how and when a certificate may be issued by a CA
+- CSR - Certificate Signing Request is a message sent to a CA to request a signed certificate
+- EKU - Extended/Enhanced Key Usage are object identifiers that define how a generated certificate may be used
