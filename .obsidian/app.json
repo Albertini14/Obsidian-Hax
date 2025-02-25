@@ -2,5 +2,6 @@
   "alwaysUpdateLinks": true,
   "rightToLeft": false,
   "showLineNumber": false,
-  "autoPairBrackets": true
+  "autoPairBrackets": true,
+  "newFileLocation": "root"
 }
