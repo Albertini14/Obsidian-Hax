@@ -12,10 +12,10 @@ THM passlist
 /usr/share/wordlists/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100.txt
 
 ### Logic Flaw
-In some cases logical flaws are the most important kind of flaws, for as they can be exploited without necesarly breaking in the system. For example, suposing that a certain webserver has a 
+In some cases logical flaws are the most important kind of flaws, for as they can be exploited without necessarily breaking in the system. For example, supposing that a certain webserver has a 
 
 ### Cooking cookies
-Cookie tampering (or the cooler brother cooking cookies) is a way to exploit the existance of cookies in order to edit them and grant us access to more privilages.
+Cookie tampering (or the cooler brother cooking cookies) is a way to exploit the existence of cookies in order to edit them and grant us access to more privileges.
 
 You can cook cookies by either inspecting the page or by creating a request with curl, using the header "Cookie: variable=value".
 

